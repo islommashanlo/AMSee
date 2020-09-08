@@ -1,0 +1,39 @@
+<% if flash[:errors] %>
+    <h3>You have encountered the following errors:</h3>
+    <ul class="errors">
+        <% flash[:errors].each do |msg|%>
+            <li><%= msg %> </li>
+        <% end %>
+    </ul>
+<% end %>
+<%= form_for @user do |f| %>
+    <div class="username">
+        <%= f.label :username %>
+        <%= f.text_field :username %>
+    </div>
+    <div class="name">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </div>
+    <div class="password">
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+    </div>
+    <div class="password_confirmation">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
+    </div>
+    <div class="location">
+        <%= f.label :location %>
+        <%= f.text_field :location %>
+    </div>
+    <div class="age">
+        <%= f.label :age %>
+        <%= f.number_field :age %>
+    </div>
+    <div class="bio">
+        <%= f.label :bio %>
+        <%= f.text_area :bio %>
+    </div>
+    <%= f.submit class: "submit" %>
+<% end %> 

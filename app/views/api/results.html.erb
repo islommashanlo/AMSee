@@ -1,0 +1,10 @@
+<h1>results</h1>
+
+<% @results.each do |result| %>
+    <div class="result">
+        <h2><%= link_to result["title"], movie_detail_path(result["id"]) %></h2>
+        <%= image_tag "https://image.tmdb.org/t/p/original#{result['poster_path']}",onerror: "this.style.display='none'"  %>
+        <p class= "description"><%= result["overview"] %></p>
+        <p class="release_date"><%= result["release_date"] %></p>
+    </div>
+<% end %>

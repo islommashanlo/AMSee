@@ -1,15 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Amsee</title>
+
+<head>
+    <title>AMSee</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+    <nav>
+        <% if session[:user_id]%>
+        <div><%= render "api/search" %></div>
+        <div><%= link_to 'See My Profile', user_path(@current_user) %></div>
+        <div>Find Friends</div>
+        <div>Recently Reviewed</div>
+        <div><%= link_to 'Logout', logout_path, method: :delete %></div>
+        <% else%>
+        <div> <%= link_to 'Login', new_login_path %></div>
+        <div><%= link_to "Create User", new_user_path %></div>
+        <div>Top 5 Movie Reviews</div>
+        <div><%= render "api/search" %></div>
+        <% end %>
+    </nav>
+    <div class="main-container">
+        <%= yield %>
+    </div>
+</body>
+
 </html>

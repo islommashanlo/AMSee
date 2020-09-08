@@ -15,8 +15,13 @@
 #
 class Movie < ApplicationRecord
     has_many :user_movies
-    has_many :user, through: :user_movies
+    has_many :users, through: :user_movies
     has_many :service_movies
     has_many :streaming_services, through: :service_movies
     has_many :view_parties
+
+
+    def average_rating
+        self.users
+    end
 end

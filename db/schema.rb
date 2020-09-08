@@ -10,16 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_08_144204) do
-
-  create_table "friends", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "friend_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["friend_id"], name: "index_friends_on_friend_id"
-    t.index ["user_id"], name: "index_friends_on_user_id"
-  end
+ActiveRecord::Schema.define(version: 2020_09_08_190613) do
 
   create_table "movies", force: :cascade do |t|
     t.string "title"
@@ -29,6 +20,13 @@ ActiveRecord::Schema.define(version: 2020_09_08_144204) do
     t.integer "tmdb_id"
     t.string "img_url"
     t.string "synopsis"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -102,8 +100,6 @@ ActiveRecord::Schema.define(version: 2020_09_08_144204) do
     t.index ["movie_id"], name: "index_view_parties_on_movie_id"
   end
 
-  add_foreign_key "friends", "friends"
-  add_foreign_key "friends", "users"
   add_foreign_key "service_movies", "movies"
   add_foreign_key "service_movies", "streaming_services"
   add_foreign_key "user_movies", "movies"

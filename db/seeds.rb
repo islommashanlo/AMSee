@@ -9,7 +9,7 @@ User.destroy_all
 Movie.destroy_all
 StreamingService.destroy_all
 ViewParty.destroy_all
-Friend.destroy_all
+Relationship.destroy_all
 
 
 User.create(username: "Bob", password: "bob", name: "Bobby", location: "Boblandia", age: 30, bio: "Not very creative, enjoys bobbing for apples")
@@ -21,7 +21,9 @@ StreamingService.create(name: "Netflix", streaming_url: "www.netflix.com", cost:
 
 ViewParty.create(name:"PARTY!!!", date:"March 14th,2020", movie_id: movie.id, streaming_location: "netflix")
 
-# Friend.create(user: User.first, friend: User.last)
+Relationship.create(follower_id: User.first.id, followed_id: User.last.id)
+Relationship.create(followed_id: User.first.id, follower_id: User.last.id)
+
 
 UserMovie.create(user: User.first, movie: Movie.first, would_watch: true, seen_before: true, rating: 10, review: "Awesome movie")
 

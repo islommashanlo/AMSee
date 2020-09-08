@@ -24,6 +24,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'net-http'
 gem 'uri'
 gem "dotenv-rails"
+gem 'faker'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+ body{
+     height: 100vh;
+     width: 100vw;
+     margin: 0;
+ }
+
+nav {
+    display: flex;
+    position: fixed;
+    height: 1.5rem;
+    width: 100%;
+    z-index: 5;
+    justify-content: space-around; 
+    border-bottom: 2px solid black;
+    div{
+        display: block;
+    }
+}
+
+.main-container{
+    padding-top: 5px;
+}
+
