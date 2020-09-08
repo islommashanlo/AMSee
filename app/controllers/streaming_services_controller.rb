@@ -1,0 +1,2 @@
+class StreamingServicesController < ApplicationController
+end
