@@ -14,11 +14,11 @@
 #
 class User < ApplicationRecord
     has_secure_password
-    has_many :user_movies
+    has_many :user_movies, dependent: :destroy
     has_many :movies, through: :user_movies
-    has_many :user_services
+    has_many :user_services, dependent: :destroy
     has_many :streaming_services, through: :user_services
-    has_many :user_view_parties
+    has_many :user_view_parties, dependent: :destroy
     has_many :view_parties, through: :user_view_parties
 
     #self referring table
@@ -28,4 +28,5 @@ class User < ApplicationRecord
     has_many :passive_relationships, class_name: "Relationship", foreign_key: :followed_id, dependent: :destroy
     has_many :followers, through: :passive_relationships, source: :follower
     validates :username, uniqueness: true
+    validates :name, presence: true
 end

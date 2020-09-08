@@ -3,6 +3,7 @@
 <h3>Location: <%=@user.location%></h3>
 <h3>Bio:<h3>
 <p><%=@user.bio%></p>
+<%= image_tag @user.img, class:"profile_image"%>
 <h3>Followers (<%=@user.followers.count%>):</h3>  <%@user.followers.each do |f|%>
 <div> <%= link_to  f.name, user_path(f) %> </div>
 <%end%>

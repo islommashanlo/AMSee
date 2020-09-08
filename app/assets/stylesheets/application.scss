@@ -18,12 +18,17 @@
      width: 100vw;
      margin: 0;
  }
+ h1 {
+     text-align: center;
+ }
 
 nav {
+    background-color: white;
     display: flex;
     position: fixed;
     height: 1.5rem;
     width: 100%;
+    opacity: 1;
     z-index: 5;
     justify-content: space-around; 
     border-bottom: 2px solid black;
@@ -31,8 +36,18 @@ nav {
         display: block;
     }
 }
-
+.welcome {
+    display:flexbox;
+    text-align: center;
+    text-justify: center;
+    height:100%;
+    
+}
 .main-container{
-    padding-top: 5px;
+    padding-top: 1.5rem;
 }
 
+.logo {
+    width:420px;
+    height:auto;
+}

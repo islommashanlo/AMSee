@@ -15,7 +15,7 @@
         <% if session[:user_id]%>
         <div><%= render "api/search" %></div>
         <div><%= link_to 'See My Profile', user_path(@current_user) %></div>
-        <div>Find Friends</div>
+        <div><%= link_to "Find Friends", users_path %></div>
         <div>Recently Reviewed</div>
         <div><%= link_to 'Logout', logout_path, method: :delete %></div>
         <% else%>

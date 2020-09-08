@@ -1,3 +1,31 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.card-container{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    
+}
+
+.profile-card {
+  margin: 20px;
+    color: rgb(14, 11, 11);
+    background-color: rgb(125, 123, 128);
+    width: 150px;
+    height: auto;
+    border: solid 4px  hsl(175, 61%, 7%);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 8px;
+    text-align: center;
+    img {
+        box-shadow: 5px 8px;
+        height:150px;
+        width: auto;
+        border-radius: 12px;
+        border: solid 1px black;
+        background:rgb(191, 162, 162);
+    }
+    }
