@@ -55,7 +55,7 @@ input[name="commit"]:active {
   }
 
 nav {
-    padding-top: 8px;
+    
     background-color: grey;
     display: flex;
     position: fixed;
@@ -65,17 +65,26 @@ nav {
     z-index: 5;
     justify-content: space-around; 
 
+    form {
+        margin-top:0;
+    }
     div{
         display: block;
     }
-    
+
     img {
         height: 3rem;
         width: auto;
     }
     .nav_link {
+        padding-top:3px;
+        font-size: 1.1rem;
+    }
+    
+    .nav_link a{
+        padding-top: 10px;
     background-color: red;
-      box-shadow: 0 5px 0 darkred;
+      box-shadow: 0 5px 0 rgb(181, 3, 3);
       color: white;
       
       padding: .2em .2em;
@@ -84,11 +93,11 @@ nav {
       text-transform: uppercase;
     }
     
-    .nav_link:hover {
+    .nav_link a:hover {
       background-color: #ce0606;
     }
     
-    .nav_link:active {
+    .nav_link a:active {
       box-shadow: none;
       top: 5px;
     }
