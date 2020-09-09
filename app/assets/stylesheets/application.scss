@@ -150,7 +150,7 @@ nav {
     font-size:38px;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (max-width: 480px) {
   nav {
     height: 3rem;
     .nav_link{

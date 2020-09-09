@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   
   #API 
   get '/search', to: 'api#search', as: 'api_search'
-  get '/search/results', to: 'api#results', as: 'api_results'
+  post '/search/results', to: 'api#results', as: 'api_results'
   get '/movie_details/:movie_id', to: 'api#movie_details', as: 'movie_detail'
 
   #SESSIONS 
