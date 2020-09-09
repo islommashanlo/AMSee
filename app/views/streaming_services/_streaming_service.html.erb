@@ -1,0 +1,14 @@
+<div class="card-container">
+    <div class="service-card">
+        <a href=<%= streaming_service.streaming_url %>><%= image_tag asset_url("#{streaming_service.icon}"), class:"logo" %></a>
+        <div class="service-name"><%= streaming_service.name %></div>
+        <div class="service-price">
+            <% if streaming_service.cost == 0 %>
+                Price May Vary
+            <% else %>
+                <%= streaming_service.cost %>
+            <% end %>
+        </div>
+        
+    </div>
+</div>

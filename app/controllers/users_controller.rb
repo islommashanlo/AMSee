@@ -21,10 +21,18 @@ class UsersController < ApplicationController
     end
 
     def update
-
+        @user.update(user_params)
+        if @user.valid?
+            session[:user_id] = @user.id
+            redirect_to user_path(@user)
+        else
+            flash[:errors] = @user.errors.full_messages
+            redirect_to edit_user_path
+        end
     end
 
     def create
+        byebug
         @user.update(user_params)
         if @user.valid?
             session[:user_id] = @user.id
@@ -38,7 +46,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:username, :password, :password_confirmation, :name, :location, :age, :bio)
+        params.require(:user).permit(:username, :password, :password_confirmation, :name, :location, :age, :bio, streaming_services: [])
     end
 
     def new_user

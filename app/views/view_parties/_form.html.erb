@@ -1,0 +1,20 @@
+<% if flash[:errors] %>
+    <div class="errors">
+        <h3>You have encountered the following errors:</h3>
+        <ul>
+            <% flash[:errors].each do |msg|%>
+                <li><%= msg.join(" ").capitalize %> </li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+<%= form_for(@view_party) do |f| %>
+<%=f.label :name%>
+<%=f.text_field :name%>
+<%=f.label :date%>
+<%= datepicker_input f, :date%>
+<%=f.label :streaming_location%>
+<%=f.text_field :streaming_location%>
+<%=f.hidden_field :movie_id, value: flash[:movie_id] %>
+<%=f.submit%>
+<% end %>

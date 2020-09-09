@@ -8,6 +8,7 @@
     justify-content: center;
     
 }
+
 .errors {
     text-align: center;
     list-style: inside;
@@ -18,7 +19,7 @@ div > div.box.header {
       font-weight: 600;
   }
 
-.profile-card {
+.profile-card{
   margin: 20px;
     color: rgb(14, 11, 11);
     background-color: rgb(125, 123, 128);
@@ -38,7 +39,46 @@ div > div.box.header {
         background:rgb(191, 162, 162);
     }
     }
+    
+.check_box {
+  input[type="checkbox"]{
+    display:inline-block;
+    width: 5px;
+    padding: 5px;
+    text-align: right;
+  }
+  body textarea{
+    width: 20px;
+  }
+  align-content: center;
+  color: rgb(14, 11, 11);
+    background-color: rgb(125, 123, 128);
+    width: 320px;
+    height: auto;
+    border: solid 4px  hsl(175, 61%, 7%);
+    
+    border-radius: 10px;
+    box-shadow: 5px 8px;
+    margin: 0 auto;
+  display: flexbox;
+  flex-flow: wrap;
+  padding: 10px 0;
+text-align: right;
+  margin-top: 70px;
+  
+  // width: 700px;
+  label{
+    margin-left:20px;
+    text-align: right;
+    border: 1px black solid;
+    padding: 3px 0;
+    display: block;
+    font-size: 16px;
+     line-height: 1.5;
+    width:200px;
+  }
 
+}
 .wrapper{
   margin: 40px auto;
   font-size: 18px;
@@ -141,7 +181,7 @@ div > div.box.header {
     }
     input, textarea {
         float: right;
-        width: 260px;
+        width: 220px;
         border-radius: 5px;
         box-shadow: 1px 1px rgb(126, 124, 124);
         

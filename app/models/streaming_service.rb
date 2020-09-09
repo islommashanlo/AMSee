@@ -11,7 +11,7 @@
 #
 class StreamingService < ApplicationRecord
     has_many :user_services
-    has_many :users, through: :user_services
+    has_many :users, through: :user_services, dependent: :destroy
     has_many :service_movies
-    has_many :movies, through: :service_movies
+    has_many :movies, through: :service_movies, dependent: :destroy
 end

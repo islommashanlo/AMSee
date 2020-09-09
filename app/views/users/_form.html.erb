@@ -39,6 +39,9 @@
         <%= f.label :bio %>
         <%= f.text_area :bio, placeholder: "Bio" %>
     </div>
+    <div class="check_box"> 
+        <%= f.collection_check_boxes :streaming_services, StreamingService.all, :id, :name%>
+    </div>
     <%= f.submit class: "submit" %>
 <% end %> 
 </div>

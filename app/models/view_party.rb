@@ -13,5 +13,8 @@
 class ViewParty < ApplicationRecord
   belongs_to :movie
   has_many :user_view_parties
-  has_many :users, through: :user_view_parties
+  has_many :users, through: :user_view_parties, dependent: :destroy
+
+
+
 end

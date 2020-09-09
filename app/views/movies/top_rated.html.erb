@@ -1,0 +1,6 @@
+<h1>Top 5 Movies Rated by our Users</h1>
+<ol>
+    <%Movie.max_rating.each do |m|%>
+        <li><%= link_to m.title, movie_detail_path(m.tmdb_id) %></li>
+    <%end%>
+</ol>

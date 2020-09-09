@@ -21,7 +21,7 @@
                     <%= link_to  f.name, user_path(f) %> 
                 </div>
             <%end%>
-            <h3>Followed by (<%=@user.followeds.count%>):</h3>  
+            <h3>Followed (<%=@user.followeds.count%>):</h3>  
             <%@user.followeds.each do |f|%>
                 <div> 
                     <%= link_to  f.name, user_path(f) %> 
@@ -41,3 +41,7 @@
         <%= link_to 'Back', :back, class:"back" %>
     </div>
 </div>
+
+<%@user.view_parties.each do |vp|%>
+<%= link_to vp.name, view_party_path(vp) %>
+<%end%>

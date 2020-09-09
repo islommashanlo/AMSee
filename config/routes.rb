@@ -5,6 +5,13 @@ Rails.application.routes.draw do
   resources :streaming_services
   resources :movies
   resources :users
+  resources :user_view_parties
+  resources :user_movies
+
+  #Custom Paths
+
+  get '/top_rated', to: 'movies#top_rated', as: 'top_rated'
+  post '/join_view_party', to: 'user_view_parties#join_party', as: 'join_view_party'
   
   #API 
   get '/search', to: 'api#search', as: 'api_search'
@@ -12,6 +19,7 @@ Rails.application.routes.draw do
   get '/movie_details/:movie_id', to: 'api#movie_details', as: 'movie_detail'
 
   #SESSIONS 
+  
   delete '/logout', to: 'sessions#logout', as: 'logout'
   post '/login', to: 'sessions#login', as: 'login'
   get '/sessions/new', to: 'sessions#new', as: 'new_login'

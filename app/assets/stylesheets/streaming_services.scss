@@ -1,3 +1,47 @@
 // Place all the styles related to the streaming_services controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.card-container{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    padding: 20px;
+    
+}
+.errors {
+    text-align: center;
+    list-style: inside;
+}
+div > div.box.header {
+      font-size: 24px;
+      color: black;
+      font-weight: 600;
+  }
+
+.service-card {
+  
+    color: rgb(14, 11, 11);
+    background-color: rgb(125, 123, 128);
+    width: 300px;
+    height: 300px;
+    border: solid 4px  hsl(175, 61%, 7%);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 8px;
+    text-align: center;
+    .service-name{
+        color: white;
+        font-size: 28px;
+        font-weight: 700px;
+        padding: 5px 0;
+    }
+    img {
+        height: 150px;
+        width: 150px;
+        
+    }
+    }
+
+    .service-price {
+
+    }

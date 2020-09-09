@@ -1,0 +1,8 @@
+<h1> Welcome to the <%= @view_party.name.capitalize %> View Party </h1>
+<%= link_to @view_party.movie.title, movie_detail_path(@view_party.movie.tmdb_id)%>
+<% @view_party.users.each do |e|%>
+<%= e.name %>
+<%=@view_party.date%>
+<%=@view_party.streaming_location%>
+<%= link_to "Join View Party", join_view_party_path, method: :post %>
+<%end%>

@@ -34,4 +34,14 @@ class User < ApplicationRecord
     def self.friends?(current_user, other_user)
         Relationship.find_by(follower_id: current_user.id, followed_id: other_user.id )
     end
+
+    def streaming_services=(services)
+        services.each do |service_id|
+         if service_id.present?
+            UserService.find_or_create_by(streaming_service_id: service_id, user_id: self.id)
+         end
+        end
+        
+    end
+
 end

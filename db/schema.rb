@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_08_224515) do
+ActiveRecord::Schema.define(version: 2020_09_09_194013) do
 
   create_table "movies", force: :cascade do |t|
     t.string "title"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2020_09_08_224515) do
     t.integer "movie_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "stream_location"
     t.index ["movie_id"], name: "index_service_movies_on_movie_id"
     t.index ["streaming_service_id"], name: "index_service_movies_on_streaming_service_id"
   end
@@ -46,6 +47,7 @@ ActiveRecord::Schema.define(version: 2020_09_08_224515) do
     t.float "cost"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "icon"
   end
 
   create_table "user_movies", force: :cascade do |t|

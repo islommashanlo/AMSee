@@ -26,6 +26,9 @@ class ApiController < ApplicationController
         @cast = @crew["cast"]
         @release_date= @details["release_date"]
         @movie = Movie.find_by(title: @details["title"])
+        @save_hash = {title: @title, genre: @genres, release_date: @release_date,
+            rating: @rating, tmdb_id: movie_params, 
+            img_url: "https://image.tmdb.org/t/p/original#{@details['poster_path']}", synopsis: @synopsis}
     end
 
 

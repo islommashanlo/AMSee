@@ -1,19 +1,28 @@
-<h1><%= @title %></h1>
-<%= image_tag "https://image.tmdb.org/t/p/original#{@details['poster_path']}",onerror: "this.style.display='none'"  %>
-<h3>Director: <%=@director%></h3>
-<h3>Release Date: <%=@release_date%></h3>
-<h3>Genres: <%=@genres%></h3>
-<h3>IMDB Rating: <%=@rating%></h3>
-<h3>AMSee Rating: <% if @movie%>
-<%=@movie.average_rating%>
-<%else%>
-    None
-<%end%>
-</h3>
-<h3>Synopsis</h3>
-<p><%=@synopsis%></p>
-<h2>Cast Members</h2>
-<% @cast[0..9].map do |ele| %>
-<div> <%= "Actor: #{ele['name']}" " - " "Character: #{ele['character']}"%></div><br>
-<%end%>
+<div class="card-container"> 
+    <div class="profile-card movie">
+    <h1><%= @title %></h1>
 
+    <%= image_tag "https://image.tmdb.org/t/p/original#{@details['poster_path']}",onerror: "this.style.display='none'"  %>
+    <div class="movie_info">
+        <h3>Director: <%=@director%></h3>
+        <h3>Release Date: <%=@release_date%></h3>
+        <h3>Genres: <%=@genres%></h3>
+        <h3>IMDB Rating: <%=@rating%></h3>
+        <h3>AMSee Rating: <% if @movie%>
+        <%=@movie.average_rating%>
+        <%else%>
+            None
+        <%end%>
+    </h3>
+    </div>
+    <h3>Synopsis</h3>
+    <p><%=@synopsis%></p>
+    <div class="movie_info">
+    <h2>Cast Members</h2>
+    <% @cast[0..9].map do |ele| %>
+    <div> <%= "Actor: #{ele['name']}" " - " "Character: #{ele['character']}"%></div><br>
+    <%end%>
+    </div>
+    <%= button_to "Add to my movies", movies_path, method: :post, params: {info: @save_hash} %>
+</div>
+</div>

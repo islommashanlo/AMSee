@@ -22,6 +22,12 @@
      letter-spacing: .04rem;
      word-spacing: .07rem;
  }
+ html{
+     background: url(asset_path('possiblebackground.jpg')) no-repeat top fixed;
+    background-position-x: stretch;
+    background-size: cover;
+    
+ }
  h1 {
      text-align: center;
  }
@@ -79,6 +85,7 @@ nav {
         height: 4rem;
         width: auto;
     }
+
     .nav_link {
         padding-top:3px;
         font-size: 1.1rem;
@@ -133,8 +140,9 @@ nav {
 }
 .main-container{
     padding-top: 4rem;
-    background: url(asset_path('possiblebackground.jpg')) no-repeat top fixed;
-    background-position-x: stretch;
+    // background: url(asset_path('possiblebackground.jpg')) no-repeat top fixed;
+    // background-position-x: stretch;
+    
     min-height: 100%;
     a {
     color: rgb(216, 179, 97);
@@ -146,6 +154,8 @@ nav {
     width:350px;
     height:auto;
 }
+
+
 .welcome > h1{
     font-size:38px;
 }
