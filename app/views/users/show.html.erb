@@ -10,3 +10,5 @@
 <h3>Followed by (<%=@user.followeds.count%>):</h3>  <%@user.followeds.each do |f|%>
 <div> <%= link_to  f.name, user_path(f) %> </div>
 <%end%>
+
+<%= button_to "Add Friend", new_friend_path, params: {friend: {follower_id: @current_user.id, followed_id: @user.id}} %>
