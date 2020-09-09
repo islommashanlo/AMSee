@@ -1,39 +1,44 @@
 <% if flash[:errors] %>
-    <h3>You have encountered the following errors:</h3>
-    <ul class="errors">
-        <% flash[:errors].each do |msg|%>
-            <li><%= msg %> </li>
-        <% end %>
-    </ul>
+    <div class="errors">
+        <h3>You have encountered the following errors:</h3>
+        <ul>
+            <% flash[:errors].each do |msg|%>
+                <li><%= msg %> </li>
+            <% end %>
+        </ul>
+    </div>
 <% end %>
+
+<div class="profile-card">
 <%= form_for @user do |f| %>
     <div class="username">
         <%= f.label :username %>
-        <%= f.text_field :username %>
+        <%= f.text_field :username, placeholder: "Username" %>
     </div>
     <div class="name">
         <%= f.label :name %>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, placeholder: "Name" %>
     </div>
     <div class="password">
         <%= f.label :password %>
-        <%= f.password_field :password %>
+        <%= f.password_field :password, placeholder: "Password" %>
     </div>
     <div class="password_confirmation">
         <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation %>
+        <%= f.password_field :password_confirmation, placeholder: "Password Confirmation" %>
     </div>
     <div class="location">
         <%= f.label :location %>
-        <%= f.text_field :location %>
+        <%= f.text_field :location, placeholder: "Location" %>
     </div>
     <div class="age">
         <%= f.label :age %>
-        <%= f.number_field :age %>
+        <%= f.number_field :age, placeholder: "Age" %>
     </div>
     <div class="bio">
         <%= f.label :bio %>
-        <%= f.text_area :bio %>
+        <%= f.text_area :bio, placeholder: "Bio" %>
     </div>
     <%= f.submit class: "submit" %>
 <% end %> 
+</div>

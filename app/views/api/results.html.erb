@@ -1,10 +1,12 @@
-<h1>results</h1>
+<h1>Results</h1>
 
-<% @results.each do |result| %>
     <div class="result">
+    <div class="card-container">
+<% @results.each do |result| %>
+    <div class="profile-card search">
         <h2><%= link_to result["title"], movie_detail_path(result["id"]) %></h2>
-        <%= image_tag "https://image.tmdb.org/t/p/original#{result['poster_path']}",onerror: "this.style.display='none'"  %>
-        <p class= "description"><%= result["overview"] %></p>
-        <p class="release_date"><%= result["release_date"] %></p>
+        <div class="poster"><%= image_tag "https://image.tmdb.org/t/p/original#{result['poster_path']}",onerror: "this.style.display='none'"  %></div>
+       <%= result["overview"] %>
+      <%= result["release_date"] %>
     </div>
 <% end %>

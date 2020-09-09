@@ -8,6 +8,10 @@
     justify-content: center;
     
 }
+.errors {
+    text-align: center;
+    list-style: inside;
+}
 div > div.box.header {
       font-size: 24px;
       color: black;
@@ -120,3 +124,34 @@ div > div.box.header {
 
 
 }
+
+.form_container  {
+    .profile-card {
+        
+        
+        margin: 0px auto;
+        padding-top: 30px;
+    text-align: left;
+    width:440px;
+    height: 300px;
+    line-height: 2.2rem;
+    
+    input {
+        height: 1.4rem;
+    }
+    input, textarea {
+        float: right;
+        width: 260px;
+        border-radius: 5px;
+        box-shadow: 1px 1px rgb(126, 124, 124);
+        
+    }
+    .submit {
+        height: 2rem;
+        margin: 15px;
+        margin-right: 20%;
+        
+    }
+    }
+}
+

@@ -21,10 +21,10 @@
             <div class="nav_link"><%= link_to 'Logout', logout_path, method: :delete %></div>
         <% else%>
             <div><%= link_to image_tag('amsee.png'), welcome_path %></div>
-            <div class="nav_link"> <%= link_to 'Login', new_login_path %></div>
-            <div class="nav_link"><%= link_to "Create User", new_user_path %></div>
-            <div class="nav_link">Top 5 Movie Reviews</div>
             <div><%= render "api/search" %></div>
+            <div class="nav_link">Top 5 Movie Reviews</div>
+            <div class="nav_link"><%= link_to "Create User", new_user_path %></div>
+            <div class="nav_link"> <%= link_to 'Login', new_login_path %></div>
         <% end %>
     </nav>
     <div class="main-container">
