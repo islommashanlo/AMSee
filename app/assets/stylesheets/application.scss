@@ -18,7 +18,9 @@
      width: 100vw;
      margin: 0;
      color: white;
-     font-family: Futura,"Trebuchet MS",Arial,sans-serif
+     font-family: Futura,"Trebuchet MS",Arial,sans-serif;
+     letter-spacing: .04rem;
+     word-spacing: .07rem;
  }
  h1 {
      text-align: center;
@@ -30,11 +32,11 @@ input[name="search"]{
 }
 
 
-input[name="commit"] {
+input[name="commit"], input[type="submit"] {
     background-color: red;
       box-shadow:  darkred;
       color: white;
-      
+      border-radius: 7px;
       height:2rem;
       position: relative;
       text-decoration: none;
@@ -45,13 +47,14 @@ input[name="commit"] {
 
 }
 
-input[name="commit"]:hover {
+input[name="commit"]:hover, input[type="submit"]:hover {
     background-color: #ce0606;
   }
   
-input[name="commit"]:active {
+input[name="commit"]:active, input[type="submit"]:active     {
     box-shadow: none;
     top: 5px;
+    
   }
 
 nav {
@@ -79,6 +82,7 @@ nav {
     .nav_link {
         padding-top:3px;
         font-size: 1.1rem;
+        
     }
     
     .nav_link a{
@@ -86,7 +90,7 @@ nav {
     background-color: red;
       box-shadow: 0 3px 0 rgb(181, 3, 3);
       color: white;
-      
+      border-radius: 7px;
       padding: .2em .2em;
       position: relative;
       text-decoration: none;
@@ -138,9 +142,23 @@ nav {
 }
 
 .logo {
+    padding-top:50px;
     width:350px;
     height:auto;
 }
 .welcome > h1{
     font-size:38px;
 }
+
+@media screen and (min-width: 480px) {
+  nav {
+    height: 3rem;
+    .nav_link{
+    font-size: 14px;
+}
+#search{width: 100px;}
+img{
+    display: none;
+    
+}
+}}

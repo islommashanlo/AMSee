@@ -31,6 +31,7 @@
        
         <% if @current_user%>
             <% if @current_user == @user %>
+                <%= button_to "Edit Profile", edit_user_path(@current_user), method: :get %>
             <% elsif User.friends?(@current_user, @user) %>
                 <%= button_to "Unfollow", delete_friend_path, method: :delete, params: {friend: {follower_id: @current_user.id, followed_id: @user.id}} %>
             <% else%>
