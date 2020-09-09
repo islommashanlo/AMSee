@@ -16,14 +16,16 @@ class ApiController < ApplicationController
 
     def movie_details
         @details = api_call("https://api.themoviedb.org/3/movie/#{movie_params}?api_key=#{ENV['TMDB_KEY']}&language=en-US")
-        @cast = api_call("https://api.themoviedb.org/3/movie/#{movie_params}/credits?api_key=#{ENV['TMDB_KEY']}&language=en-US")
+        @crew = api_call("https://api.themoviedb.org/3/movie/#{movie_params}/credits?api_key=#{ENV['TMDB_KEY']}&language=en-US")
         @similar= api_call("https://api.themoviedb.org/3/movie/#{movie_params}/similar?api_key=#{ENV['TMDB_KEY']}&language=en-US")
-        genres = @details["genres"].map {|hash| hash["name"]}.join(", ")[0..-1]
-        synopsis = @details["overview"]
-        title = @details["title"]
-        rating = @details["vote_average"]
-        @cast["cast"].map {|ele| "#{ele['name']} | #{ele['character']}"} 
-        
+        @genres = @details["genres"].map {|hash| hash["name"]}.join(", ")[0..-1]
+        @synopsis = @details["overview"]
+        @title = @details["title"]
+        @rating = @details["vote_average"]
+        @director = @crew["crew"].select{|e| e["job"] == "Director"}.map{|e|e["name"]}.join(", ")
+        @cast = @crew["cast"]
+        @release_date= @details["release_date"]
+        @movie = Movie.find_by(title: @details["title"])
     end
 
 

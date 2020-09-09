@@ -27,6 +27,11 @@ class User < ApplicationRecord
     has_many :followeds, through: :active_relationships, source: :followed
     has_many :passive_relationships, class_name: "Relationship", foreign_key: :followed_id, dependent: :destroy
     has_many :followers, through: :passive_relationships, source: :follower
-    validates :username, uniqueness: true
+    validates :username, uniqueness: {case_sensititve: :false}
     validates :name, presence: true
+
+
+    def self.friends?(current_user, other_user)
+        Relationship.find_by(follower_id: current_user.id, followed_id: other_user.id )
+    end
 end

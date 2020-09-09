@@ -1,10 +1,10 @@
 class RelationshipsController < ApplicationController
     def make_friend
-        byebug
+        
         new_friend = Relationship.create(friend_params)
         if new_friend.valid?
             flash[:success] = "You are now friends"
-            redirect_to user_path(params["followed_id"])
+            redirect_to user_path(params["friend"]["followed_id"])
         else
             flash[:errors]= new_friend.errors.full_messages
             redirect_to users_path
@@ -12,7 +12,10 @@ class RelationshipsController < ApplicationController
     end
 
     def delete_friend
-
+        friendship = Relationship.find_by(friend_params)
+        friendship.destroy
+        flash[:success] = "You have unfollowed"
+        redirect_to users_path
     end
 
     private

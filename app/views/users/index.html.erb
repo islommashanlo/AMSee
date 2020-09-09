@@ -1,11 +1,16 @@
 <h1>Other Users</h1>
+<% if flash[:success]%>
+<div>
+    <%= flash[:success] %>
+</div>
+<% end %>
 <div class="card-container">
     <% @users.each do |user| %>
         <div class="profile-card">
-        <%= image_tag user.img, class:"profile_image" %>
-        <p class="name">
-        <%= link_to user.name, user_path(user.id) %>
-        </p>
-</div>
+            <%= image_tag user.img, class:"profile_image" %>
+                <p class="name">
+            <%= link_to user.name, user_path(user.id) %>
+            </p>
+        </div>
         <% end%>
 </div>

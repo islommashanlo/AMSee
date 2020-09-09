@@ -1,1 +1,19 @@
-<%=  (@trial) %>
+<h1><%= @title %></h1>
+<%= image_tag "https://image.tmdb.org/t/p/original#{@details['poster_path']}",onerror: "this.style.display='none'"  %>
+<h3>Director: <%=@director%></h3>
+<h3>Release Date: <%=@release_date%></h3>
+<h3>Genres: <%=@genres%></h3>
+<h3>IMDB Rating: <%=@rating%></h3>
+<h3>AMSee Rating: <% if @movie%>
+<%=@movie.average_rating%>
+<%else%>
+    None
+<%end%>
+</h3>
+<h3>Synopsis</h3>
+<p><%=@synopsis%></p>
+<h2>Cast Members</h2>
+<% @cast[0..9].map do |ele| %>
+<div> <%= "Actor: #{ele['name']}" " - " "Character: #{ele['character']}"%></div><br>
+<%end%>
+

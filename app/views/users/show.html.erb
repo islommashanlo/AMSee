@@ -1,14 +1,35 @@
-<h1>Profile Page of <%=@user.name%></h1>
-<h3>Age: <%=@user.age%></h3>
-<h3>Location: <%=@user.location%></h3>
-<h3>Bio:<h3>
-<p><%=@user.bio%></p>
-<%= image_tag @user.img, class:"profile_image"%>
-<h3>Followers (<%=@user.followers.count%>):</h3>  <%@user.followers.each do |f|%>
-<div> <%= link_to  f.name, user_path(f) %> </div>
-<%end%>
-<h3>Followed by (<%=@user.followeds.count%>):</h3>  <%@user.followeds.each do |f|%>
-<div> <%= link_to  f.name, user_path(f) %> </div>
-<%end%>
-
-<%= button_to "Add Friend", new_friend_path, params: {friend: {follower_id: @current_user.id, followed_id: @user.id}} %>
+<div class="my-profile">
+    <div class="wrapper">
+        <div class="box header">
+            Profile Page of <%=@user.name%>
+        </div>
+        <div class="box sidebar">
+            <%= image_tag @user.img, class:"profile-image"%>
+        </div>
+        <div class="box content">
+            Age: <%=@user.age%><br>
+            Location: <%=@user.location%><br>
+            Bio:<br>
+            <%=@user.bio%><br>
+        <div class="box footer">
+        <h3>Followers (<%=@user.followers.count%>):</h3>  <%@user.followers.each do |f|%>
+        <div> <%= link_to  f.name, user_path(f) %> </div>
+        <%end%>
+        <h3>Followed by (<%=@user.followeds.count%>):</h3>  <%@user.followeds.each do |f|%>
+        <div> <%= link_to  f.name, user_path(f) %> </div>
+        <%end%>
+        </div>
+        </div>
+        </div>
+        </div>
+        <% if @current_user%>
+            <% if @current_user == @user %>
+            <% elsif User.friends?(@current_user, @user) %>
+                <%= button_to "Unfollow", delete_friend_path, method: :delete, params: {friend: {follower_id: @current_user.id, followed_id: @user.id}} %>
+            <% else%>
+                <%= button_to "Follow", new_friend_path, params: {friend: {follower_id: @current_user.id, followed_id: @user.id}} %>
+            <% end %>
+        <% end %>
+        <%= link_to 'Back', :back, class:"back" %>
+    </div>
+</div>

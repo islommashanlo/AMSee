@@ -21,7 +21,12 @@ class Movie < ApplicationRecord
     has_many :view_parties
 
 
+
     def average_rating
-        self.users
+        if self.user_movies
+            self.user_movies.sum{|m|m.rating} / self.user_movies.count
+        else 
+            0
+        end
     end
 end

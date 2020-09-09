@@ -39,3 +39,4 @@ UserService.create(user: User.first, streaming_service: StreamingService.first)
     Hero.get_hero(rand(1..731))
 
 end
+
