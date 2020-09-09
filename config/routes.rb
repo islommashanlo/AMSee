@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   #Custom Paths
 
   get '/top_rated', to: 'movies#top_rated', as: 'top_rated'
-  post '/join_view_party', to: 'user_view_parties#join_party', as: 'join_view_party'
   
   #API 
   get '/search', to: 'api#search', as: 'api_search'

@@ -14,6 +14,10 @@ class UserMoviesController < ApplicationController
     def edit
 
     end
+
+    def create
+        
+    end
     
     
 

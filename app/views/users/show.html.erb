@@ -41,6 +41,14 @@
         <%= link_to 'Back', :back, class:"back" %>
     </div>
 </div>
+<div class="result">
+    <div class="card-container">
+        <%= @user.movies.each do |movie| %>
+            <div class="profile-card search">
+                <%= movie.title %>
+        <% end%>
+    </div>
+</div>
 
 <%@user.view_parties.each do |vp|%>
 <%= link_to vp.name, view_party_path(vp) %>

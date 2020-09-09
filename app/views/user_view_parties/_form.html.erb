@@ -1,0 +1,7 @@
+<%= form_for(@user_view_party) do |f| %>
+    <%=f.label "View Party"%>
+    <%=f.collection_select :view_party_id, ViewParty.all, :id, :name%>
+    <%=f.label "User"%>
+    <%=f.collection_select :user_id, User.all.where(id: @current_user.id), :id, :name%>
+    <%=f.submit "Join View Party"%>
+<% end %>

@@ -50,21 +50,25 @@ class Movie < ApplicationRecord
         response = http.request(request)
         info = JSON.parse(response.read_body)
         streaming_locations = info["collection"]["locations"]
+        create_relations(streaming_locations)
     end
 
 
     def create_relations(location_list)
-        if location_list.has_value?("Amazon Instant Video")
-
+        if location_list.length > 0
+            location_list.each do |location|
+                location_find(location)
+            end
         end
+    end
     
-    def location_find(location, service)
+    def location_find(location)
         found = StreamingService.find_by(name: location["display_name"])
         if found
-            ServiceMovie.create
+            ServiceMovie.find_or_create_by(movie: self, streaming_service: found, stream_location: location["url"] )
         end
     end
         
 
-    end
+    
 end

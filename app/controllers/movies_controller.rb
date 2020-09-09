@@ -16,7 +16,11 @@ class MoviesController < ApplicationController
     def create
         new_movie = Movie.find_or_create_by(import_movie)
         if new_movie.valid?
+            # new_movie.streaming_api
+            byebug
+            new_relation = UserMovie.find_or_create_by(user_id: @current_user.id, movie_id: new_movie.id)
             flash[:movie_id] = new_movie.id
+            flash[:user_movie] = new_relation.id
             redirect_to new_view_party_path
         else
             flash[:errors] = new_movie.errors.full_messages
@@ -26,6 +30,9 @@ class MoviesController < ApplicationController
 
     private
 
+    def user_movie_params
+        
+    end
     def import_movie
         params.require(:info).permit(:title, :genre, :release_date, :rating, :tmdb_id, :img_url, :synopsis)
     end

@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     end
 
     def create
-        byebug
+        
         @user.update(user_params)
         if @user.valid?
             session[:user_id] = @user.id

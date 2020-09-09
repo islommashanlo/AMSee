@@ -10,7 +10,7 @@ class ViewPartiesController < ApplicationController
     end
 
     def show
-        
+        flash[:view_party] = @view_party
     end
 
     def new

@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2020_09_09_194013) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "stream_location"
-    t.index ["movie_id"], name: "index_service_movies_on_movie_id"
+    t.index ["movie_@id"], name: "index_service_movies_on_movie_id"
     t.index ["streaming_service_id"], name: "index_service_movies_on_streaming_service_id"
   end
 
