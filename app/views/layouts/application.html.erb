@@ -13,16 +13,18 @@
 <body>
     <nav>
         <% if session[:user_id]%>
-        <div><%= render "api/search" %></div>
-        <div><%= link_to 'See My Profile', user_path(@current_user) %></div>
-        <div><%= link_to "Find Friends", users_path %></div>
-        <div>Recently Reviewed</div>
-        <div><%= link_to 'Logout', logout_path, method: :delete %></div>
+            <div><%= link_to image_tag('amsee.png'), welcome_path %></div>
+            <div class="nav_link"><%= render "api/search" %></div>
+            <div class="nav_link"><%= link_to 'See My Profile', user_path(@current_user) %></div>
+            <div class="nav_link"><%= link_to "Find Friends", users_path %></div>
+            <div class="nav_link">Recently Reviewed</div>
+            <div class="nav_link"><%= link_to 'Logout', logout_path, method: :delete %></div>
         <% else%>
-        <div> <%= link_to 'Login', new_login_path %></div>
-        <div><%= link_to "Create User", new_user_path %></div>
-        <div>Top 5 Movie Reviews</div>
-        <div><%= render "api/search" %></div>
+            <div><%= link_to image_tag('amsee.png'), welcome_path %></div>
+            <div class="nav_link"> <%= link_to 'Login', new_login_path %></div>
+            <div class="nav_link"><%= link_to "Create User", new_user_path %></div>
+            <div class="nav_link">Top 5 Movie Reviews</div>
+            <div class="nav_link"><%= render "api/search" %></div>
         <% end %>
     </nav>
     <div class="main-container">
