@@ -8,6 +8,11 @@
     justify-content: center;
     
 }
+div > div.box.header {
+      font-size: 24px;
+      color: black;
+      font-weight: 600;
+  }
 
 .profile-card {
   margin: 20px;
@@ -37,19 +42,24 @@
 
 .sidebar {
   grid-area: sidebar;
+  display: flex;
   .profile-image {
       border-radius: 10px;
+      padding-right: 10px;
+  }
+  .content {
+    flex-wrap: wrap;;
+    grid-area: content;
+    position: relative;
+    width: 250px;
   }
 }
 
-.content {
-  grid-area: content;
-  position: relative;
-}
 
 .header {
   grid-area: header;
   text-align: center;
+  
 }
 
 .footer {
@@ -59,9 +69,9 @@
 .wrapper {
         display: grid;
     grid-gap: 10px;
-        grid-template-columns: 200px 200px 200px;
+        grid-template-columns: 100px 100px 100px;
         grid-template-areas:
-    "header  header  header"
+        "header  header  header"
         "sidebar content content"
         "footer  footer  footer";
         background-color: transparent;
@@ -75,6 +85,7 @@
   border-radius: 5px;
   padding: 50px;
   font-size: 18px;
+  
 }
 
 .header,
