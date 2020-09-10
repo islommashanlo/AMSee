@@ -15,9 +15,8 @@ class MoviesController < ApplicationController
 
     def create
         new_movie = Movie.find_or_create_by(import_movie)
+        new_movie.streaming_api(new_movie.tmdb_id)
         if new_movie.valid?
-            # new_movie.streaming_api
-            
             new_relation = UserMovie.find_by(user_id: @current_user.id, movie_id: new_movie.id)
             if !new_relation
                 new_relation = UserMovie.create(user_id: @current_user.id, movie_id: new_movie.id)

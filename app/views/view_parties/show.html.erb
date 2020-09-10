@@ -1,12 +1,19 @@
-<h1> Welcome to the <%= @view_party.name.capitalize %> View Party </h1>
-<% @view_party.users.each do |e|%>
+<h1> Welcome to the "<%= @view_party.name.capitalize %>" View Party </h1>
 <%= link_to @view_party.movie.title, movie_detail_path(@view_party.movie.tmdb_id)%>
-<%= e.name %>
+<% @view_party.users.each do |e|%>
+    <%if e == @current_user %>
+        <%= e.name %>
+    <%else%>
+        <%= link_to  e.name, user_path(e) %>
+    <%end%>
 <%end%>
 <%=@view_party.date%>
-<%=@view_party.streaming_location%> 
-<% if @view_party.users.include?(@current_user)%>
-<%= button_to  "Leave View Party", leave_view_party_path, method: :delete, params: {user_view_party: {view_party_id: @view_party.id, user_id: @current_user.id}} %>
+<%=link_to StreamingService.find(@view_party.streaming_location).name, "#{ServiceMovie.find_by(streaming_service_id: @view_party.streaming_location).stream_location}"%> 
+<% if @view_party.users.include?(@current_user) and @view_party.users[0] != @current_user%>
+    <%= button_to  "Leave View Party", leave_view_party_path, method: :delete, params: {user_view_party: {view_party_id: @view_party.id, user_id: @current_user.id}} %>
+<%elsif @view_party.users.include?(@current_user) and @view_party.users.first == @current_user%>
+    <%= button_to  "Edit View Party", edit_view_party_path, method: :get %>   
+    <%= button_to  "Delete View Party", {action: "destroy"},  method: :delete, data: { confirm: "Are you sure?" }, params: {view_party: {id: @view_party.id, date: @view_party.date, streaming_location: @view_party.streaming_location, movie_id: @view_party.movie_id}} %>
 <%else%>
-<%= button_to  "Join View Party", join_view_party_path, params: {user_view_party: {view_party_id: @view_party.id, user_id: @current_user.id}} %>
+    <%= button_to  "Join View Party", join_view_party_path, params: {user_view_party: {view_party_id: @view_party.id, user_id: @current_user.id}} %>
 <%end%>

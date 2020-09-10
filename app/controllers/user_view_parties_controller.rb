@@ -21,7 +21,7 @@ class UserViewPartiesController < ApplicationController
         user_view_party = UserViewParty.find_by(user_view_party_params)
         user_view_party.destroy
         flash[:success] = "You have successfully left the View Party"
-        redirect_to user_view_parties_path
+        redirect_to view_parties_path
     end
 
     def new

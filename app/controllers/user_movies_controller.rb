@@ -23,7 +23,7 @@ class UserMoviesController < ApplicationController
     def update
         @user_movie.update(user_movie_params)
         if @user_movie.valid?
-            redirect_to user_path(@current_user)
+            redirect_to movie_detail_path(@user_movie.movie.tmdb_id)
         else
             flash[:errors] = @user_movie.errors.full_messages
             redirect_to edit_user_movie_path

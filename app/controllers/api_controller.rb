@@ -33,9 +33,6 @@ class ApiController < ApplicationController
             rating: @rating, tmdb_id: movie_params, 
             img_url: "https://image.tmdb.org/t/p/original#{@details['poster_path']}", synopsis: @synopsis}
         @have_movie = @current_user.have_movie?(@movie)
-        if @movie
-            @movie.streaming_api
-        end
         if videos["results"].length > 0
             video = videos["results"].find { |video| video["site"] == "YouTube"}
             @video = video["key"]

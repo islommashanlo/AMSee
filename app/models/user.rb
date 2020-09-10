@@ -20,6 +20,7 @@ class User < ApplicationRecord
     has_many :streaming_services, through: :user_services
     has_many :user_view_parties, dependent: :destroy
     has_many :view_parties, through: :user_view_parties
+    has_one_attached :profile_pic
 
     #self referring table
 
@@ -32,7 +33,7 @@ class User < ApplicationRecord
     validates :age, numericality: {greater_than: 10}
     validates :bio, length: {minimum: 10}
     validates :location, length: {minimum: 3}
-    
+
     def self.friends?(current_user, other_user)
         Relationship.find_by(follower_id: current_user.id, followed_id: other_user.id )
     end

@@ -20,7 +20,7 @@ User.create(username: "Caryn", password: "mojo", name: "Caryn", location: "New Y
 
 #movie = Movie.create(title: "Midsummer", genre: "horror", rating: 10, release_date: "March, 12th, 2019", tmdb_id: 30, img_url: 'http://www.midsummer.com', synopsis: "Metaphorical horror movie")
 
-StreamingService.create(name: "Netflix", streaming_url: "www.netflix.com", cost: 12.99)
+
 
 ViewParty.create(name:"PARTY!!!", date:"March 14th,2020", movie_id: movie.id, streaming_location: "netflix")
 
@@ -41,6 +41,7 @@ StreamingService.create(name: "HBO Max", streaming_url: "http://www.hbomax.com",
 StreamingService.create(name: "Amazon Instant Video", streaming_url: "http://www.primevideo.com", cost: 0, icon: 'amazonprime.jpg')
 StreamingService.create(name: "Google Play", streaming_url: "http://www.googleplay.com", cost: 0, icon: 'googleplay.svg')
 StreamingService.create(name: "Hulu", streaming_url: "http://www.hulu.com", cost: 0, icon: 'hululogo.png')
+StreamingService.create(name: "Disney+", streaming_url: "http://www.disneyplus.com", cost: 9.99, icon: 'disneyplus.png')
 
 
 UserService.create(user: User.first, streaming_service: StreamingService.first)

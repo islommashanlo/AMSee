@@ -19,24 +19,28 @@ class ViewPartiesController < ApplicationController
         end
     end
 
+    def new
+        @user_movie = UserMovie.find_or_create_by(user_id: @current_user.id, movie_id: flash["movie_id"])
+    end
+
     def edit
-        flash[:user_movie] = params[:id]
-        
+        @view_party = ViewParty.find(params[:id])
+    end
+
+    def destroy
+        ViewParty.destroy_by(party_params)
+        redirect_to view_parties_path
     end
 
     def solo_party
         
         @view_party = ViewParty.new
         flash[:movie_id] = params[:movie][:movie_id]
-        render :solo_party
+        redirect_post view_party_path(flash[:movie_id])
     end
 
     def show
         flash[:view_party] = @view_party
-    end
-
-    def new
-        @user_movie = UserMovie.find_or_create_by(user: @current_user, movie: Movie.find(flash[:movie_id]) )
     end
 
     def create

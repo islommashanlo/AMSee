@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_10_020955) do
+ActiveRecord::Schema.define(version: 2020_09_10_162231) do
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.integer "record_id", null: false
+    t.integer "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
 
   create_table "movies", force: :cascade do |t|
     t.string "title"
@@ -93,16 +114,10 @@ ActiveRecord::Schema.define(version: 2020_09_10_020955) do
     t.string "img", default: "amsee.png"
   end
 
-  create_table "view_parties", force: :cascade do |t|
-    t.string "name"
-    t.datetime "date"
-    t.integer "movie_id", null: false
-    t.string "streaming_location"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["movie_id"], name: "index_view_parties_on_movie_id"
-  end
+# Could not dump table "view_parties" because of following StandardError
+#   Unknown type 'belongs_to' for column 'streaming_location'
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "service_movies", "movies"
   add_foreign_key "service_movies", "streaming_services"
   add_foreign_key "user_movies", "movies"

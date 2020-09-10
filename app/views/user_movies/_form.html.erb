@@ -9,8 +9,12 @@
     </div>
 <% end %>
 <%= form_for @user_movie do |f| %>
+<% if @user_movie %>
+    <%=f.hidden_field :movie_id, value: @user_movie.movie.id %>
+    <% else%>
+    <%=f.hidden_field :movie_id, value: flash[:movie_id] %>
+<% end%>
 <%=f.hidden_field :user_id, value: @current_user.id %>
-<%=f.hidden_field :movie_id, value: flash[:movie_id] %>
 <div><%=f.label "Rating"%></div>
 <div><%=f.number_field :rating%></div><br>
 <div><%=f.label "Review" %></div>

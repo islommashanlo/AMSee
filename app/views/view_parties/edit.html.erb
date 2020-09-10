@@ -1,7 +1,3 @@
 <h1>Create a View Party</h1>
 <%= render 'form' %>
 
-
-<h1>Or rate it</h1>
-
-<%= render partial: 'user_movies/form', locals: { user_movie: UserMovie.find_by(id: flash[:user_movie])} %>

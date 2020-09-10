@@ -1,2 +1,2 @@
 <h1>Write a Review </h1>
-<%= render 'form' %>
+<%= render partial: 'form', locals: { user_movie: UserMovie.find_by(id: flash[:user_movie])} %> 

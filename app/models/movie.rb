@@ -37,8 +37,8 @@ class Movie < ApplicationRecord
         end
     end
 
-    def streaming_api
-        url = URI("https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/idlookup?country=us&source_id=#{self.tmdb_id}&source=tmdb")
+    def streaming_api(id)
+        url = URI("https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/idlookup?country=us&source_id=#{id}&source=tmdb")
         http = Net::HTTP.new(url.host, url.port)
         http.use_ssl = true
         http.verify_mode = OpenSSL::SSL::VERIFY_NONE
@@ -50,6 +50,7 @@ class Movie < ApplicationRecord
         streaming_locations = info["collection"]["locations"]
         create_relations(streaming_locations)
     end
+
 
 
     def create_relations(location_list)

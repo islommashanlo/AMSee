@@ -35,7 +35,7 @@
     <%end%>
     </div>
     <% if @have_movie  %>
-    <%= button_to "Review", edit_user_movie_path(@have_movie), method: :get, params: {movie:{movie_id: @have_movie.movie.id}} %>
+    <%= button_to "Edit Review", edit_user_movie_path(@have_movie), method: :get, params: {user_movie: {movie_id: @have_movie.movie.id}} %>
     <%= button_to "Create View Party", new_solo_party_path, method: :get, params: {movie:{movie_id: @have_movie.movie.id}} %>
     <%= button_to "Remove from My Movies", user_movie_path(@have_movie), method: :delete %>
     <% else %>
@@ -51,7 +51,7 @@
                 <a href= <%= service_movie.stream_location %> target="_blank"> <%= image_tag service_movie.streaming_service.icon %></a>
                 <% end%>
             </div>
-        <% end %>
+        <% end %>  
         <%end %>
     </div>
 </div>

@@ -9,7 +9,7 @@
     </div>
 <% end %>
 
-<div class="profile-card">
+<div class="profile-card upload">
 <%= form_for @user do |f| %>
     <div class="username">
         <%= f.label :username %>
@@ -34,6 +34,10 @@
     <div class="age">
         <%= f.label :age %>
         <%= f.number_field :age, placeholder: "Age" %>
+    </div>
+    <div class="profile_pic">
+        <%= f.label :profile_pic %>
+        <%= f.file_field :profile_pic, placeholder: "Profile Pic" %>
     </div>
     <div class="bio">
         <%= f.label :bio %>
