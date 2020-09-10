@@ -6,10 +6,19 @@ class UsersController < ApplicationController
     end
     
     def index
-        if @current_user
-            @users = User.where.not(id: @current_user.id)
+        if params[:user_find]
+
+            @users= User.where("name LIKE '%#{params[:user_find]}%'" )
+            if @users.length == 0
+                flash[:errors] = "No users found"
+                @users = User.all
+            end
         else
-            @users = User.all
+            if @current_user
+                @users = User.where.not(id: @current_user.id)
+            else
+                @users = User.all
+            end
         end
     end
     def show

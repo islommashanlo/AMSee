@@ -20,7 +20,7 @@ class ApiController < ApplicationController
         videos = api_call("https://api.themoviedb.org/3/movie/#{movie_params}/videos?api_key=#{ENV['TMDB_KEY']}&language=en-US")
         @details = api_call("https://api.themoviedb.org/3/movie/#{movie_params}?api_key=#{ENV['TMDB_KEY']}&language=en-US")
         @crew = api_call("https://api.themoviedb.org/3/movie/#{movie_params}/credits?api_key=#{ENV['TMDB_KEY']}&language=en-US")
-        @similar= api_call("https://api.themoviedb.org/3/movie/#{movie_params}/similar?api_key=#{ENV['TMDB_KEY']}&language=en-US")
+        @recommended= api_call("https://api.themoviedb.org/3/movie/#{movie_params}/recommendations?api_key=#{ENV['TMDB_KEY']}&language=en-US")["results"]
         @genres = @details["genres"].map {|hash| hash["name"]}.join(", ")[0..-1]
         @synopsis = @details["overview"]
         @title = @details["title"]
@@ -37,7 +37,6 @@ class ApiController < ApplicationController
             video = videos["results"].find { |video| video["site"] == "YouTube"}
             @video = video["key"]
         end
-        
     end
 
 

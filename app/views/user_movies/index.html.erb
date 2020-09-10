@@ -1,7 +1,6 @@
 <h1>Reviewed Movies</h1>
-<h3>
     <ol>
-    <%@user_movies.select{|e|e.user == @current_user}.each do |um|%>
+    <%@user_movies.select{|e|e.user == @current_user and e.rating != nil}.each do |um|%>
         <li><%= link_to um.movie.title, movie_detail_path(um.movie.tmdb_id)%>
             <ul>
             <li>Rating: <%= um.rating%></li>
@@ -10,4 +9,4 @@
         </li>
     <%end%>
     </ol>
-</h3>
+

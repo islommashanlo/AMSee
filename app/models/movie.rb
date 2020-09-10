@@ -23,7 +23,7 @@ class Movie < ApplicationRecord
 
 
     def average_rating
-        if self.user_movies.count > 0
+        if self.user_movies.count > 0 and self.user_movies.any?{|e|e.rating != nil}
             self.user_movies.sum{|m|m.rating} / self.user_movies.count
         else 
             0
@@ -54,7 +54,7 @@ class Movie < ApplicationRecord
 
 
     def create_relations(location_list)
-        if location_list.length > 0
+        if location_list.present?
             location_list.each do |location|
                 location_find(location)
             end

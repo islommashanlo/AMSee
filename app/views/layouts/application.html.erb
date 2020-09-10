@@ -17,6 +17,7 @@
             <div ><%= render "api/search" %></div>
             <div class="nav_link"><%= link_to 'See My Profile', user_path(@current_user) %></div>
             <div class="nav_link"><%= link_to "Find Friends", users_path %></div>
+            <div class="nav_link"><%= link_to "VPs", view_parties_path %></div>
             <div class="nav_link"> <%= link_to  "Recently Reviewed", user_movies_path %></div>
             <div class="nav_link"><%= link_to 'Logout', logout_path, method: :delete %></div>
         <% else%>

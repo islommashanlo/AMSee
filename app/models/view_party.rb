@@ -17,4 +17,7 @@ class ViewParty < ApplicationRecord
 
 
 
+  def proper_date
+    self.date.strftime('%A %B %d, %Y at %H:%M')
+  end
 end

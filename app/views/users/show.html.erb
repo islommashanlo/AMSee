@@ -31,6 +31,7 @@
                 </div>
             <%end%>
         </div>
+        
        
         <% if @current_user%>
             <% if @current_user == @user %>
@@ -44,8 +45,20 @@
         <%= link_to 'Back', :back, class:"back" %>
     </div>
 </div>
+    <% if @user.streaming_services.present? %>
+    <div class="section-title">
+            Streaming Services:
+            </div>
+    <div class="services">
+        <% @user.streaming_services.each do |service|%>
+                <a href= <%= service.streaming_url %> target="_blank"> <%= image_tag service.icon %></a>
+        <% end%>
+        </div>
+    <% end %>
+
+
     <% if @user.view_parties.length > 0 %>
-        <div class="result">
+        
         <div class="section-title">VIEW PARTIES:</div>
             <div class="card-container">
                 <%@user.view_parties.each do |vp|%>
@@ -53,11 +66,15 @@
                         <div class="poster"><%= image_tag vp.movie.img_url ,onerror: "this.style.display='none'"  %></div>
                     
                     <%= link_to vp.name, view_party_path(vp) %>
-                        
+                    
                         
             </div>
                 <% end %>
-                        </div>
+        </div>
+    <% end %>
+
+
+
     <% if @user.want_to_see.length > 0%>
         <div class="section-title">Want to See:</div>
         <%= render partial: 'info', locals: {user_something: @user.want_to_see} %>
@@ -71,6 +88,4 @@
         <%= render partial: 'info', locals: {user_something: @user.have_seen} %>
     <% end %>
 
-    <% end %>
-
-
+    

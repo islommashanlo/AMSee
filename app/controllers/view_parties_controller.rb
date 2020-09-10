@@ -1,6 +1,7 @@
 class ViewPartiesController < ApplicationController
     before_action :new_party, only: [:new, :create]
     before_action :find_party, only: [:show, :update, :edit]
+
     def index
         if @current_user
             @view_parties = ViewParty.all.select{|e|e.users.include?(@current_user)}
@@ -32,11 +33,10 @@ class ViewPartiesController < ApplicationController
         redirect_to view_parties_path
     end
 
-    def solo_party
-        
+    def solo_party        
         @view_party = ViewParty.new
         flash[:movie_id] = params[:movie][:movie_id]
-        redirect_post view_party_path(flash[:movie_id])
+        redirect_to new_view_party_path
     end
 
     def show

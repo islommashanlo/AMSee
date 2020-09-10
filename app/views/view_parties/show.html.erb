@@ -1,14 +1,19 @@
 <h1> Welcome to the "<%= @view_party.name.capitalize %>" View Party </h1>
+<div class="card-container">
+
+    <div class="profile-card party">
+
+
 <%= link_to @view_party.movie.title, movie_detail_path(@view_party.movie.tmdb_id)%>
+<%= image_tag @view_party.movie.img_url %>
 <% @view_party.users.each do |e|%>
     <%if e == @current_user %>
-        <%= e.name %>
-    <%else%>
-        <%= link_to  e.name, user_path(e) %>
+        I'm attending<br>
+
     <%end%>
 <%end%>
-<%=@view_party.date%>
-<%=link_to StreamingService.find(@view_party.streaming_location).name, "#{ServiceMovie.find_by(streaming_service_id: @view_party.streaming_location).stream_location}"%> 
+<%=@view_party.proper_date%><br>
+<%=link_to StreamingService.find(@view_party.streaming_location).name, "#{ServiceMovie.find_by(streaming_service_id: @view_party.streaming_location).stream_location}"%> <br>
 <% if @view_party.users.include?(@current_user) and @view_party.users[0] != @current_user%>
     <%= button_to  "Leave View Party", leave_view_party_path, method: :delete, params: {user_view_party: {view_party_id: @view_party.id, user_id: @current_user.id}} %>
 <%elsif @view_party.users.include?(@current_user) and @view_party.users.first == @current_user%>
@@ -17,3 +22,25 @@
 <%else%>
     <%= button_to  "Join View Party", join_view_party_path, params: {user_view_party: {view_party_id: @view_party.id, user_id: @current_user.id}} %>
 <%end%>
+</div>
+</div>
+<div class="section-title">Attending:</div>
+<div class="card-container">
+    <% @view_party.users.each do |user| %>
+        <div class="profile-card">
+              <% if user.profile_pic.attached? %>
+                <%= image_tag user.profile_pic, class:"profile-image"%>
+            <%else%>
+                <%= image_tag user.img, class:"profile-image"%>
+            <%end%>
+                <p class="name">
+            <%= link_to user.name, user_path(user.id) %>
+            </p>
+            <% if !user.streaming_services.include?(StreamingService.find(@view_party.streaming_location))%>
+            WARNING: <br> 
+            They don't have the service!!
+            <% end %>
+        </div>
+        <% end%>
+</div>
+

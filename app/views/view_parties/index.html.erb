@@ -1,7 +1,15 @@
 <h1>View Parties that you are part of</h1>
+<% if @view_parties.length == 0 %>
+    <div class="errors"> You don't have any parties!?!?!?!</div>
+<% else %>
+<div class="card-container">
 <% @view_parties.each do |e|%>
-<div>
-    <%= link_to e.name, view_party_path(e) %><br>
-    <%= image_tag "#{e.movie.img_url}", size: "20x20", alt: "Missing Movie Image"%>
-</div><br>
+    <div class="profile-card search">
+
+    <h2><%= link_to e.name, view_party_path(e) %></h2>
+   <div class="poster"> <%= image_tag "#{e.movie.img_url}", size: "20x20", alt: "Missing Movie Image"%></div>
+   <div class="date"><%= e.proper_date %></div>
+</div>
 <%end%>
+
+<% end %>

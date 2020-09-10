@@ -4,6 +4,22 @@
 form{
     display:flexbox;
 }
+.profile-card.party{
+    width: 450px;
+    height: auto;
+    
+    img{
+        margin: 20px auto;
+        display:block;
+        
+        width: 250px;
+        height: auto;
+    }
+}
+.date {
+    color: white;
+    font-size: 18px;
+}
 .form_container  {
     .profile-card {
         

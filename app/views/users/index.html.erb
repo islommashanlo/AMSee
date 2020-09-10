@@ -4,6 +4,17 @@
     <%= flash[:success] %>
 </div>
 <% end %>
+<% if flash[:errors]%>
+<div class="errors">
+    <%= flash[:errors] %>
+</div>
+<% end %>
+<div class="user_search">
+    <%= form_tag users_path, method: :get do %>
+    <%= text_field_tag(:user_find, params[:user_find]) %>
+    <%= submit_tag "Search" %>
+<% end %>
+</div>
 <div class="card-container">
     <% @users.each do |user| %>
         <div class="profile-card">

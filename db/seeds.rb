@@ -17,7 +17,6 @@ StreamingService.destroy_all
 
 User.create(username: "Bob", password: "bob", name: "Bobby", location: "Boblandia", age: 30, bio: "Not very creative, enjoys bobbing for apples", img:"")
 User.create(username: "Caryn", password: "mojo", name: "Caryn", location: "New York", age: 20, bio: "Flatiron Instructor", img:"")
-
 #movie = Movie.create(title: "Midsummer", genre: "horror", rating: 10, release_date: "March, 12th, 2019", tmdb_id: 30, img_url: 'http://www.midsummer.com', synopsis: "Metaphorical horror movie")
 
 
