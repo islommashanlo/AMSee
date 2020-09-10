@@ -1,0 +1,11 @@
+<div class="result">
+        
+        <div class="card-container">
+            <% user_something.each do |user_movie| %>
+                <div class="profile-card">
+                    <h2><%= link_to user_movie.movie.title, movie_detail_path(user_movie.movie.tmdb_id) %></h2>
+                    <div class="poster"><%= image_tag user_movie.movie.img_url ,onerror: "this.style.display='none'"  %></div>
+                    
+        </div>
+            <% end %>
+    </div>

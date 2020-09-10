@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_09_194013) do
+ActiveRecord::Schema.define(version: 2020_09_10_020955) do
 
   create_table "movies", force: :cascade do |t|
     t.string "title"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2020_09_09_194013) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "stream_location"
-    t.index ["movie_@id"], name: "index_service_movies_on_movie_id"
+    t.index ["movie_id"], name: "index_service_movies_on_movie_id"
     t.index ["streaming_service_id"], name: "index_service_movies_on_streaming_service_id"
   end
 
@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(version: 2020_09_09_194013) do
   end
 
   create_table "user_movies", force: :cascade do |t|
-    t.boolean "would_watch"
-    t.boolean "seen_before"
+    t.boolean "would_watch", default: true
+    t.boolean "seen_before", default: false
     t.integer "rating"
     t.string "review"
     t.integer "movie_id", null: false

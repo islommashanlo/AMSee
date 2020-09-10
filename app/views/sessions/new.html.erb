@@ -1,15 +1,21 @@
-<h1>Login In</h1>
+<h1>Login</h1>
 
 <% if flash[:errors] %>
-    <%= flash[:errors] %>
+  <div class="errors">
+      <%= flash[:errors] %>
+  </div>
 <% end %>
 
-<%= form_for :session, url: login_path do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
+<div class="centered">
+  <div class="profile-card">
+    <%= form_for :session, url: login_path do |f| %>
+      <%= f.label :username %>
+      <%= f.text_field :username %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
 
-  <%= f.submit "Login" %>
-<% end %>
+      <%= f.submit "Login" %>
+    <% end %>
+    </div>
+</div>

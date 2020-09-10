@@ -1,4 +1,5 @@
 class ApiController < ApplicationController
+    before_action :authorized,  only: [:movie_details]
     def search
 
     end
@@ -15,6 +16,7 @@ class ApiController < ApplicationController
     end
 
     def movie_details
+        videos = api_call("https://api.themoviedb.org/3/movie/#{movie_params}/videos?api_key=#{ENV['TMDB_KEY']}&language=en-US")
         @details = api_call("https://api.themoviedb.org/3/movie/#{movie_params}?api_key=#{ENV['TMDB_KEY']}&language=en-US")
         @crew = api_call("https://api.themoviedb.org/3/movie/#{movie_params}/credits?api_key=#{ENV['TMDB_KEY']}&language=en-US")
         @similar= api_call("https://api.themoviedb.org/3/movie/#{movie_params}/similar?api_key=#{ENV['TMDB_KEY']}&language=en-US")
@@ -30,6 +32,12 @@ class ApiController < ApplicationController
             rating: @rating, tmdb_id: movie_params, 
             img_url: "https://image.tmdb.org/t/p/original#{@details['poster_path']}", synopsis: @synopsis}
         @have_movie = @current_user.have_movie?(@movie)
+        
+        if videos["results"].length > 0
+            video = videos["results"].find { |video| video["site"] == "YouTube"}
+            @video = video["key"]
+        end
+        
     end
 
 

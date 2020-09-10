@@ -1,7 +1,7 @@
 class UserMoviesController < ApplicationController
 
     before_action :new_user_movie, only: [:new, :create]
-    before_action :find_user_movie, only: [:show, :update, :edit]
+    before_action :find_user_movie, only: [:show, :update, :edit, :destroy]
     
     def index
         @user_movies = UserMovie.all
@@ -9,6 +9,11 @@ class UserMoviesController < ApplicationController
 
     def new
         
+    end
+    
+    def destroy
+        @user_movie.destroy
+        redirect_to user_path(@current_user)
     end
 
     def edit
@@ -23,7 +28,7 @@ class UserMoviesController < ApplicationController
             flash[:errors] = @user_movie.errors.full_messages
         end
     end
-    
+
     def create
         byebug
         @user_movie.update(user_movie_params)

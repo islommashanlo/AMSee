@@ -41,17 +41,33 @@
         <%= link_to 'Back', :back, class:"back" %>
     </div>
 </div>
-<div class="result">
-    <div class="card-container">
-        <% @user.movies.each do |movie| %>
-            <div class="profile-card">
-                <h2><%= link_to movie.title, movie_detail_path(movie.tmdb_id) %></h2>
-                <div class="poster"><%= image_tag movie.img_url ,onerror: "this.style.display='none'"  %></div>
-                
-    </div>
-        <% end %>
-</div>
+    <% if @user.want_to_see.length > 0%>
+        <div class="section-title">Want to See:</div>
+        <%= render partial: 'info', locals: {user_something: @user.want_to_see} %>
+    <% end %>
+    <% if @user.want_to_see.length > 0%>
+        <div class="section-title">Would Watch Again:</div>
+        <%= render partial: 'info', locals: {user_something: @user.watch_again} %>
+    <% end %>
+    <% if @user.have_seen.length > 0%>
+        <div class="section-title">Have Seen:</div>
+        <%= render partial: 'info', locals: {user_something: @user.have_seen} %>
+    <% end %>
 
-<%@user.view_parties.each do |vp|%>
-<%= link_to vp.name, view_party_path(vp) %>
-<%end%>
+    <% if @user.view_parties.length > 0 %>
+        <div class="result">
+        <div class="section-title">VIEW PARTIES!:</div>
+            <div class="card-container">
+                <%@user.view_parties.each do |vp|%>
+                    <div class="profile-card">
+                        <div class="poster"><%= image_tag vp.movie.img_url ,onerror: "this.style.display='none'"  %></div>
+                    
+                    <%= link_to vp.name, view_party_path(vp) %>
+                        
+                        
+            </div>
+                <% end %>
+        </div>
+    <% end %>
+
+

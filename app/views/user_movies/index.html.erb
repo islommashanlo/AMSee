@@ -1,13 +1,13 @@
 <h1>Reviewed Movies</h1>
 <h3>
-    <%@user_movies.each do |um|%>
     <ol>
+    <%@user_movies.each do |um|%>
         <li><%= link_to um.movie.title, movie_path(um.movie)%>
             <ul>
             <li>Rating: <%= um.rating%></li>
             <li>Review: <p><%= um.review%></li></p>
             </ul>
         </li>
-    </ol>
     <%end%>
+    </ol>
 </h3>

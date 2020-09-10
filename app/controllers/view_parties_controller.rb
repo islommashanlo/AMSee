@@ -21,7 +21,7 @@ class ViewPartiesController < ApplicationController
 
     def edit
         flash[:user_movie] = params[:id]
-        byebug
+        
     end
 
     def solo_party
@@ -30,6 +30,7 @@ class ViewPartiesController < ApplicationController
         flash[:movie_id] = params[:movie][:movie_id]
         render :solo_party
     end
+
     def show
         flash[:view_party] = @view_party
     end
@@ -37,7 +38,7 @@ class ViewPartiesController < ApplicationController
     def new
         
         @user_movie = UserMovie.find_by(user: @current_user, movie: Movie.find(flash[:movie_id]) )
-        byebug
+        
     end
 
     def create

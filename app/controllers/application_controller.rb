@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
     end
 
     def authorized
+        flash[:errors] = "You Need To Be Logged In"
         redirect_to new_login_path unless logged_in?
     end
 

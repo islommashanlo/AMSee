@@ -29,8 +29,10 @@ class User < ApplicationRecord
     has_many :followers, through: :passive_relationships, source: :follower
     validates :username, uniqueness: {case_sensititve: :false}
     validates :name, presence: true
-
-
+    validates :age, numericality: {greater_than: 10}
+    validates :bio, length: {minimum: 10}
+    validates :location, length: {minimum: 3}
+    
     def self.friends?(current_user, other_user)
         Relationship.find_by(follower_id: current_user.id, followed_id: other_user.id )
     end
@@ -47,4 +49,18 @@ class User < ApplicationRecord
     def have_movie?(movie)
         UserMovie.find_by(user: self, movie: movie)
     end
+
+    def want_to_see
+        self.user_movies.select {|movie| movie.would_watch == true }
+    end
+
+    def have_seen
+        self.user_movies.select {|movie| movie.seen_before == true}
+    end
+
+    def watch_again
+        want_to_see & have_seen
+    end
+
+  
 end

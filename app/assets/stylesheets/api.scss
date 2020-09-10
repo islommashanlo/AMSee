@@ -15,3 +15,13 @@ img {
         }
     }
 }   
+
+.embed {
+    margin: 10px auto;
+    text-align: center;
+    iframe {
+        box-shadow: 5px 8px rgb(43, 41, 41);
+        border-radius: 12px;
+        border: solid 1px black;
+        background:rgb(43, 41, 41);}
+}
