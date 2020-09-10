@@ -43,17 +43,14 @@ div > div.box.header {
 .check_box {
   input[type="checkbox"]{
     display:inline-block;
-    width: 5px;
-    padding: 5px;
-    text-align: right;
-  }
-  body textarea{
     width: 20px;
+    align-self: center;
   }
+  
   align-content: center;
   color: rgb(14, 11, 11);
     background-color: rgb(125, 123, 128);
-    width: 320px;
+    width: 260px;
     height: auto;
     border: solid 4px  hsl(175, 61%, 7%);
     
@@ -69,13 +66,11 @@ text-align: right;
   // width: 700px;
   label{
     margin-left:20px;
-    text-align: right;
-    border: 1px black solid;
     padding: 3px 0;
     display: block;
     font-size: 16px;
      line-height: 1.5;
-    width:200px;
+    width:180px;
   }
 
 }
@@ -179,12 +174,9 @@ text-align: right;
     input {
         height: 1.4rem;
     }
-    input, textarea {
-        float: right;
-        width: 220px;
-        border-radius: 5px;
-        box-shadow: 1px 1px rgb(126, 124, 124);
-        
+    
+    textarea {
+      height: 85px;
     }
     .submit {
         height: 2rem;
@@ -199,3 +191,11 @@ text-align: right;
   text-align: center;
   font-size: 2rem;
 }
+input, textarea {
+        
+        float: right;
+        width: 220px;
+        border-radius: 5px;
+        box-shadow: 1px 1px rgb(126, 124, 124);
+        
+    }

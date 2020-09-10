@@ -91,6 +91,16 @@ nav {
         font-size: 1.1rem;
         
     }
+    form{
+        display:flex;
+    }
+    input[type="submit"]{
+        width:100px;
+        float:right;
+    }
+    #search{
+        width:160px;
+    }
     
     .nav_link a{
         padding-top: 10px;
@@ -181,8 +191,17 @@ img{
 .centered {
     padding-top: 30px;
     display: flex;
+    text-align: center;
     justify-content: center;
     height: auto;
     margin: 0 auto;
+    input{
+        float: none;
+        line-height:1.4rem;
+        justify-self: center;
+        margin: 4px;
+        width: 120px;
+
+    }
     
 }

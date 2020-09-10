@@ -1,5 +1,6 @@
 class ApiController < ApplicationController
     before_action :authorized,  only: [:movie_details]
+    
     def search
 
     end
