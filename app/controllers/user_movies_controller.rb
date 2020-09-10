@@ -10,7 +10,7 @@ class UserMoviesController < ApplicationController
     def new
         
     end
-    
+
     def destroy
         @user_movie.destroy
         redirect_to user_path(@current_user)
@@ -26,17 +26,17 @@ class UserMoviesController < ApplicationController
             redirect_to user_path(@current_user)
         else
             flash[:errors] = @user_movie.errors.full_messages
+            redirect_to edit_user_movie_path
         end
     end
 
     def create
-        byebug
         @user_movie.update(user_movie_params)
         if @user_movie.valid?
             redirect_to user_path(@current_user)
         else
             flash[:errors] = @user_movie.errors.full_messages
-            redirect_to user_path(@current_user)
+            redirect_to new_user_movie_path
         end
     end
     

@@ -16,7 +16,7 @@ class UserMovie < ApplicationRecord
   belongs_to :movie
   belongs_to :user
 
-  validates :rating, presence: true, numericality: {maximum: 10}
+  validates :rating, presence: true, numericality: {less_than_or_equal_to: 10, greater_than_or_equal_to: 0}
 
 
   def wacthed?

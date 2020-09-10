@@ -184,18 +184,18 @@ text-align: right;
         margin-right: 20%;
         
     }
+  }
+      input, textarea {
+              
+              float: right;
+              width: 220px;
+              border-radius: 5px;
+              box-shadow: 1px 1px rgb(126, 124, 124);
+              
+          }
     }
-}
 
 .section-title {
   text-align: center;
   font-size: 2rem;
 }
-input, textarea {
-        
-        float: right;
-        width: 220px;
-        border-radius: 5px;
-        box-shadow: 1px 1px rgb(126, 124, 124);
-        
-    }

@@ -7,9 +7,9 @@ class UserViewPartiesController < ApplicationController
     end
     
 
-    def create
-        @user_view_party = UserViewParty.new(user_view_party_params)
-        if @user_view_party.save
+    def join_view_party
+        @user_view_party = UserViewParty.create(user_view_party_params)
+        if @user_view_party.valid?
           redirect_to view_party_path(@user_view_party.view_party)
         else
           flash[:errors] = @user_view_party.errors
@@ -17,6 +17,13 @@ class UserViewPartiesController < ApplicationController
         end
     end
     
+    def leave_view_party
+        user_view_party = UserViewParty.find_by(user_view_party_params)
+        user_view_party.destroy
+        flash[:success] = "You have successfully left the View Party"
+        redirect_to user_view_parties_path
+    end
+
     def new
 
     end

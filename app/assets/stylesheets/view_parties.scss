@@ -1,3 +1,45 @@
 // Place all the styles related to the view_parties controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+form{
+    display:flexbox;
+}
+.form_container  {
+    .profile-card {
+        
+        display: flex;
+        margin: 0px auto;
+        
+    text-align: center;
+    width:440px;
+    height: 300px;
+    line-height: 2.2rem;
+    
+    input {
+        height: 1.4rem;
+    }
+    
+    textarea {
+      height: 85px;
+    }
+    .submit {
+        height: 2rem;
+        margin: 15px;
+        margin-right: 20%;
+        
+    }
+}
+        input, textarea {
+                
+                
+                width: 220px;
+                border-radius: 5px;
+                box-shadow: 1px 1px rgb(126, 124, 124);
+                
+            }
+}
+
+// .section-title {
+//   text-align: center;
+//   font-size: 2rem;
+// }

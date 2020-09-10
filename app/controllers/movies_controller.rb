@@ -20,7 +20,7 @@ class MoviesController < ApplicationController
             
             new_relation = UserMovie.find_by(user_id: @current_user.id, movie_id: new_movie.id)
             if !new_relation
-                new_relation = UserMovie.create(user_id: @current_user.id, movie_id: new_movie.id, rating: 0)
+                new_relation = UserMovie.create(user_id: @current_user.id, movie_id: new_movie.id)
             end
             flash[:movie_id] = new_movie.id
             flash[:user_movie] = new_relation.id

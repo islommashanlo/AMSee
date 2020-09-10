@@ -1,8 +1,8 @@
 <h1>Reviewed Movies</h1>
 <h3>
     <ol>
-    <%@user_movies.each do |um|%>
-        <li><%= link_to um.movie.title, movie_path(um.movie)%>
+    <%@user_movies.select{|e|e.user == @current_user}.each do |um|%>
+        <li><%= link_to um.movie.title, movie_detail_path(um.movie.tmdb_id)%>
             <ul>
             <li>Rating: <%= um.rating%></li>
             <li>Review: <p><%= um.review%></li></p>

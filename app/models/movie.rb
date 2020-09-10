@@ -42,11 +42,9 @@ class Movie < ApplicationRecord
         http = Net::HTTP.new(url.host, url.port)
         http.use_ssl = true
         http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-
         request = Net::HTTP::Get.new(url)
         request["x-rapidapi-host"] = ENV['UTELLY_HOST']
         request["x-rapidapi-key"] = ENV['UTELLY_KEY']
-
         response = http.request(request)
         info = JSON.parse(response.read_body)
         streaming_locations = info["collection"]["locations"]

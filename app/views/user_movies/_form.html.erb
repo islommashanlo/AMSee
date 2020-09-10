@@ -1,4 +1,16 @@
+<% if flash[:errors] %>
+    <div class="errors">
+        <h3>You have encountered the following errors:</h3>
+        <ul>
+            <% flash[:errors].each do |msg|%>
+                <li><%= msg %> </li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
 <%= form_for @user_movie do |f| %>
+<%=f.hidden_field :user_id, value: @current_user.id %>
+<%=f.hidden_field :movie_id, value: flash[:movie_id] %>
 <div><%=f.label "Rating"%></div>
 <div><%=f.number_field :rating%></div><br>
 <div><%=f.label "Review" %></div>

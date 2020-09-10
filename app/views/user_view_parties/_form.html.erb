@@ -1,4 +1,7 @@
+
 <%= form_for(@user_view_party) do |f| %>
+    <%=f.hidden_field :user_id, value: @current_user.id %>
+    <%=f.hidden_field :movie_id, value: flash[:movie_id] %>
     <%=f.label "View Party"%>
     <%=f.collection_select :view_party_id, ViewParty.all, :id, :name%>
     <%=f.label "User"%>

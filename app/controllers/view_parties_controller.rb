@@ -36,23 +36,22 @@ class ViewPartiesController < ApplicationController
     end
 
     def new
-        
-        @user_movie = UserMovie.find_by(user: @current_user, movie: Movie.find(flash[:movie_id]) )
-        
+        @user_movie = UserMovie.find_or_create_by(user: @current_user, movie: Movie.find(flash[:movie_id]) )
     end
 
     def create
-        
         @view_party = ViewParty.new(party_params)
         if @view_party.save
             UserViewParty.find_or_create_by(user_id: @current_user.id, view_party_id: @view_party.id)
             redirect_to view_party_path(@view_party)
         else
-          flash[:errors] = @view_party.errors
+          flash[:errors] = @view_party.errors.full_messages
           redirect_to new_view_party_path
         end
     end
     
+
+
 
     private
 

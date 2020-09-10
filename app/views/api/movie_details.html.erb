@@ -35,11 +35,24 @@
     <%end%>
     </div>
     <% if @have_movie  %>
-    <%= button_to "Review", edit_user_movie_path(@have_movie), method: :get, params: {movie:{movie_id: @have_movie.id}} %>
-    <%= button_to "Create View Party", new_solo_party_path, method: :get, params: {movie:{movie_id: @have_movie.id}} %>
+    <%= button_to "Review", edit_user_movie_path(@have_movie), method: :get, params: {movie:{movie_id: @have_movie.movie.id}} %>
+    <%= button_to "Create View Party", new_solo_party_path, method: :get, params: {movie:{movie_id: @have_movie.movie.id}} %>
     <%= button_to "Remove from My Movies", user_movie_path(@have_movie), method: :delete %>
     <% else %>
     <%= button_to "Add to my movies", movies_path, method: :post, params: {info: @save_hash} %>
     <% end %>
+    <% if @movie %>
+        <% if @movie.service_movies.length > 0%>
+            <div class="section-title">
+            Streaming Services:
+            </div>
+                <div class="services">
+                <% @movie.service_movies.each do |service_movie|%>
+                <a href= <%= service_movie.stream_location %> target="_blank"> <%= image_tag service_movie.streaming_service.icon %></a>
+                <% end%>
+            </div>
+        <% end %>
+        <%end %>
+    </div>
 </div>
 </div>

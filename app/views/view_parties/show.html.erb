@@ -1,8 +1,12 @@
 <h1> Welcome to the <%= @view_party.name.capitalize %> View Party </h1>
-<%= link_to @view_party.movie.title, movie_detail_path(@view_party.movie.tmdb_id)%>
 <% @view_party.users.each do |e|%>
+<%= link_to @view_party.movie.title, movie_detail_path(@view_party.movie.tmdb_id)%>
 <%= e.name %>
 <%end%>
 <%=@view_party.date%>
-<%=@view_party.streaming_location%>
-<%= button_to  "Join View Party", new_user_view_party_path, method: :get %>
+<%=@view_party.streaming_location%> 
+<% if @view_party.users.include?(@current_user)%>
+<%= button_to  "Leave View Party", leave_view_party_path, method: :delete, params: {user_view_party: {view_party_id: @view_party.id, user_id: @current_user.id}} %>
+<%else%>
+<%= button_to  "Join View Party", join_view_party_path, params: {user_view_party: {view_party_id: @view_party.id, user_id: @current_user.id}} %>
+<%end%>
