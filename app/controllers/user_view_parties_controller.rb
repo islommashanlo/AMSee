@@ -21,6 +21,7 @@ class UserViewPartiesController < ApplicationController
 
     end
 
+   
 
 
     private

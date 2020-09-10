@@ -1,6 +1,11 @@
-<%= form_for(user_movie) do |f| %>
+<%= form_for @user_movie do |f| %>
 <div><%=f.label "Rating"%></div>
 <div><%=f.number_field :rating%></div><br>
 <div><%=f.label "Review" %></div>
 <div><%=f.text_area :review, size: "100x20"%></div>
+<%= f.label :would_watch %>
+<%= f.check_box :would_watch %>
+<%= f.label :seen_before %>
+<%= f.check_box :seen_before %>
+<%= f.submit "Review it!" %>
 <% end %>

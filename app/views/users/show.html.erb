@@ -43,11 +43,13 @@
 </div>
 <div class="result">
     <div class="card-container">
-        <%= @user.movies.each do |movie| %>
-            <div class="profile-card search">
-                <%= movie.title %>
-        <% end%>
+        <% @user.movies.each do |movie| %>
+            <div class="profile-card">
+                <h2><%= link_to movie.title, movie_detail_path(movie.tmdb_id) %></h2>
+                <div class="poster"><%= image_tag movie.img_url ,onerror: "this.style.display='none'"  %></div>
+                
     </div>
+        <% end %>
 </div>
 
 <%@user.view_parties.each do |vp|%>

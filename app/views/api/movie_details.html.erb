@@ -23,6 +23,11 @@
     <div> <%= "Actor: #{ele['name']}" " - " "Character: #{ele['character']}"%></div><br>
     <%end%>
     </div>
+    <% if @have_movie  %>
+    <%= button_to "Review", edit_user_movie_path(@have_movie), method: :get, params: {movie:{movie_id: @have_movie.id}} %>
+    <%= button_to "Create View Party", new_solo_party_path, method: :get, params: {movie:{movie_id: @have_movie.id}} %>
+    <% else %>
     <%= button_to "Add to my movies", movies_path, method: :post, params: {info: @save_hash} %>
+    <% end %>
 </div>
 </div>

@@ -17,8 +17,11 @@ class MoviesController < ApplicationController
         new_movie = Movie.find_or_create_by(import_movie)
         if new_movie.valid?
             # new_movie.streaming_api
-            byebug
-            new_relation = UserMovie.find_or_create_by(user_id: @current_user.id, movie_id: new_movie.id)
+            
+            new_relation = UserMovie.find_by(user_id: @current_user.id, movie_id: new_movie.id)
+            if !new_relation
+                new_relation = UserMovie.create(user_id: @current_user.id, movie_id: new_movie.id, rating: 0)
+            end
             flash[:movie_id] = new_movie.id
             flash[:user_movie] = new_relation.id
             redirect_to new_view_party_path

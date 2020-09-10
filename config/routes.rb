@@ -25,5 +25,6 @@ Rails.application.routes.draw do
   root to: 'welcome#home', as: 'welcome'
   post '/make_friend', to: 'relationships#make_friend', as: 'new_friend'
   delete '/delete_friend', to: 'relationships#delete_friend', as: 'delete_friend'
+  get '/new_view_party', to: 'view_parties#solo_party', as: 'new_solo_party'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -12,11 +12,27 @@ class UserMoviesController < ApplicationController
     end
 
     def edit
-
+        @user_movie=UserMovie.find(params[:id])
     end
 
+    def update
+        @user_movie.update(user_movie_params)
+        if @user_movie.valid?
+            redirect_to user_path(@current_user)
+        else
+            flash[:errors] = @user_movie.errors.full_messages
+        end
+    end
+    
     def create
-        
+        byebug
+        @user_movie.update(user_movie_params)
+        if @user_movie.valid?
+            redirect_to user_path(@current_user)
+        else
+            flash[:errors] = @user_movie.errors.full_messages
+            redirect_to user_path(@current_user)
+        end
     end
     
     

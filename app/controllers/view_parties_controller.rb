@@ -1,5 +1,5 @@
 class ViewPartiesController < ApplicationController
-    before_action :new_party, only: [:new, :edit]
+    before_action :new_party, only: [:new, :create]
     before_action :find_party, only: [:show, :update, :edit]
     def index
         if @current_user
@@ -9,12 +9,35 @@ class ViewPartiesController < ApplicationController
         end
     end
 
+    def update
+        @view_party.update(party_params)
+        if @view_party.valid?
+            redirect_to view_party_path
+        else
+            flash[:errors] = @view_party.errors.full_messages
+            redirect_to view_party_path
+        end
+    end
+
+    def edit
+        flash[:user_movie] = params[:id]
+        byebug
+    end
+
+    def solo_party
+        
+        @view_party = ViewParty.new
+        flash[:movie_id] = params[:movie][:movie_id]
+        render :solo_party
+    end
     def show
         flash[:view_party] = @view_party
     end
 
     def new
-
+        
+        @user_movie = UserMovie.find_by(user: @current_user, movie: Movie.find(flash[:movie_id]) )
+        byebug
     end
 
     def create

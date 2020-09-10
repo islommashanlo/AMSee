@@ -44,4 +44,7 @@ class User < ApplicationRecord
         
     end
 
+    def have_movie?(movie)
+        UserMovie.find_by(user: self, movie: movie)
+    end
 end

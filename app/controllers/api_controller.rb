@@ -29,6 +29,7 @@ class ApiController < ApplicationController
         @save_hash = {title: @title, genre: @genres, release_date: @release_date,
             rating: @rating, tmdb_id: movie_params, 
             img_url: "https://image.tmdb.org/t/p/original#{@details['poster_path']}", synopsis: @synopsis}
+        @have_movie = @current_user.have_movie?(@movie)
     end
 
 
