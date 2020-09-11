@@ -3,15 +3,15 @@
         <a href=<%= streaming_service.streaming_url %>><%= image_tag asset_url("#{streaming_service.icon}"), class:"logo" %></a>
         <div class="service-name"><%= streaming_service.name %></div>
         <div class="service-price">
+            <% if @current_user%>
+                <% if @current_user.streaming_services.include?(streaming_service)%>
+                    <%= button_to "Unsubscribe", unsubscribe_path, method: :delete, params: {sub: {user_id: @current_user.id, streaming_service_id: streaming_service.id }} %>
+                <% else %>
             <% if streaming_service.cost == 0 %>
                 Price May Vary
             <% else %>
                 <%= streaming_service.cost %>
             <% end %>
-            <% if @current_user%>
-                <% if @current_user.streaming_services.include?(streaming_service)%>
-                    <%= button_to "Unsubscribe", unsubscribe_path, method: :delete, params: {sub: {user_id: @current_user.id, streaming_service_id: streaming_service.id }} %>
-                <% else %>
                     <%= button_to "Subscribe", subscribe_path, method: :post, params: {sub: {user_id: @current_user.id, streaming_service_id: streaming_service.id }} %>
 
                 <% end%>
