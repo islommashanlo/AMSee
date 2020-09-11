@@ -5,6 +5,7 @@ class ViewPartiesController < ApplicationController
     def index
         if @current_user
             @view_parties = ViewParty.all.select{|e|e.users.include?(@current_user)}
+            @friends_party = @current_user.friends_party.flatten
         else
             @view_parties = ViewParty.all.sample(5)
         end

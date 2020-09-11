@@ -1,12 +1,17 @@
 <h1>Reviewed Movies</h1>
     <ol>
+    <div class="card-container">
     <%@user_movies.select{|e|e.user == @current_user and e.rating != nil}.each do |um|%>
+    <div class="profile-card">
         <li><%= link_to um.movie.title, movie_detail_path(um.movie.tmdb_id)%>
-            <ul>
-            <li>Rating: <%= um.rating%></li>
-            <li>Review: <p><%= um.review%></li></p>
-            </ul>
+            <%= image_tag um.movie.img_url %>
+           
+            <div class="title">Rating:</div> <div class="rating"> <%= um.rating.to_f%> </div>
+            <div class="title">Review:</div> <div class="review"><p><%= um.review%></p></div>
+           
         </li>
+</div>
     <%end%>
     </ol>
 
+</div>

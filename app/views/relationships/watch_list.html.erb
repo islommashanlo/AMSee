@@ -1,0 +1,13 @@
+<h1>What Friends want to watch!</h1>
+
+<div class="card-container">
+    <% @user_movies.each do |user_movie| %>
+    <div class="profile-card watchlist">
+    <%= link_to user_movie.user.name, user_path(user_movie.user) %>
+    <%= image_tag user_movie.user.img, class: "top" %>
+    <%= link_to user_movie.movie.title, movie_detail_path(user_movie.movie.tmdb_id) %>
+    <%= image_tag user_movie.movie.img_url, class:"bottom"%>
+
+    </div>
+    <% end%>
+</div>

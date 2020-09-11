@@ -31,3 +31,15 @@ body > div.main-container > div > div > div.services img {
         border: solid 1px black;
         background:rgb(43, 41, 41);}
 }
+div.recc {
+    display: flex;
+    width:300px;
+    padding-bottom: 10px;
+    a{color: #d8b361;}
+    img {
+        
+        margin: auto;
+        width: 130px;
+        height: auto;
+    }
+}

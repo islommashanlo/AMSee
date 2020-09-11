@@ -63,5 +63,9 @@ class User < ApplicationRecord
         want_to_see & have_seen
     end
 
+    def friends_party
+        all_friends = self.followeds.select {|followed| followed.view_parties.present? }.map {|user| user.view_parties }
+        all_friends.flatten.reject {|party| self.view_parties.include?(party)}
+    end
   
 end

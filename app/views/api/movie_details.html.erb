@@ -58,9 +58,9 @@
 </div>
 
 
-<div class="recc-container">
-<% @recommended[0..4].each do |e|%>
-    <div class="recc-card">
+<div class="card-container">
+<% @recommended[0..7].each do |e|%>
+    <div class="profile-card recc">
     <h2><%=link_to e["title"], movie_detail_path(e["id"])%></h2>
    <div class="movie-poster"> <%= image_tag "https://image.tmdb.org/t/p/original#{e["poster_path"]}", size: "20x20", alt: "Missing Movie Image"%></div>
 </div>

@@ -8,16 +8,21 @@
         </ul>
     </div>
 <% end %>
-    
+    <div class="card-container">
+    <div class="profile-card review">
     <%= form_for(@view_party) do |f| %>
-   <div class="info">
-    <%=f.label :name%>
-    <%=f.text_field :name%>
-    <%=f.label :date%>
-    <%= datepicker_input f, :date%>
-    <%=f.label :streaming_location%>
-    <%=f.collection_select :streaming_location, Movie.find(flash[:movie_id]).streaming_services, :id, :name %>
+  
+    <%=f.label :name%><br>
+    <%=f.text_field :name%><br>
+    <%=f.label :date%><br>
+    <%= datepicker_input f, :date%><br>
+    <%=f.label :streaming_location%><br>
+    <%=f.collection_select :streaming_location, Movie.find(flash[:movie_id]).streaming_services, :id, :name %><br>
     <%=f.hidden_field :movie_id, value: flash[:movie_id] %>
-    <div class="info">
+    <br>
     <%=f.submit%>
     <% end %>
+
+
+    </div>
+    </div>

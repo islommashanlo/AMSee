@@ -11,6 +11,10 @@ class RelationshipsController < ApplicationController
         end
     end
 
+    def watch_list
+        @user_movies = @current_user.followeds.map(&:want_to_see).flatten
+    end
+
     def delete_friend
         friendship = Relationship.find_by(friend_params)
         friendship.destroy

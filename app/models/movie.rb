@@ -23,18 +23,16 @@ class Movie < ApplicationRecord
 
 
     def average_rating
-        if self.user_movies.count > 0 and self.user_movies.any?{|e|e.rating != nil}
-            self.user_movies.sum{|m|m.rating} / self.user_movies.count
+        if self.user_movies.count > 0
+            (self.user_movies.reject{|e|e.rating == nil}.sum{|m|m.rating}.to_f / self.user_movies.reject{|e|e.rating == nil}.count).to_f
         else 
-            0
+            0.0
         end
     end
 
     def self.max_rating
-        if self.all.count > 0
-            self.all.max(5){|e|e.average_rating}
-        else
-        end
+        self.all.sort{|a, b|a.average_rating <=> b.average_rating}.reverse[0..9]
+        
     end
 
     def streaming_api(id)

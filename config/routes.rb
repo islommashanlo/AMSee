@@ -28,5 +28,8 @@ Rails.application.routes.draw do
   get '/new_view_party', to: 'view_parties#solo_party', as: 'new_solo_party'
   post '/join_view_party', to: 'user_view_parties#join_view_party', as: 'join_view_party'
   delete '/leave_view_party', to: 'user_view_parties#leave_view_party', as: 'leave_view_party'
+  get '/friend/watch_list', to: 'relationships#watch_list', as: 'friend_watch_list'
+  delete '/unsubscribe', to: 'streaming_services#unsubscribe', as: 'unsubscribe'
+  post '/subscribe', to: 'streaming_services#subscribe', as: 'subscribe'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

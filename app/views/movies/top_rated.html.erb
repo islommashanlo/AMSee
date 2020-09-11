@@ -1,6 +1,10 @@
-<h1>Top 5 Movies Rated by our Users</h1>
-<ol>
-    <%Movie.max_rating.each do |m|%>
-        <li><%= link_to m.title, movie_detail_path(m.tmdb_id) %></li>
-    <%end%>
-</ol>
+<h1>Top 10 Movies Rated by our Users</h1>
+<div class="card-container">
+<% Movie.max_rating.each do |m|%>
+   <div class="profile-card movie">
+    <h2> 
+        <%= link_to m.title, movie_detail_path(m.tmdb_id)%></h2>
+        <div class="img"> <%= image_tag "#{m.img_url}", size: "20x20", alt: "Missing Movie Image"%></div>
+        <div> AMSee Rating: </div> <div class="rating"><%= m.average_rating %></div>
+</div>
+<%end%>

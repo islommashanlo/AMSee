@@ -4,6 +4,7 @@ class UserViewPartiesController < ApplicationController
 
     def index
         @user_view_parties = UserViewParty.where(user_id: @current_user.id)
+        @friends_party = @current_user.friends_party
     end
     
 

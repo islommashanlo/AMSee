@@ -13,6 +13,20 @@
  *= require_tree .
  *= require_self
  */
+
+ img.bottom, img.top{
+    margin: 8px auto;
+ }
+ .profile-card.watchlist{
+         display: grid;
+
+ }
+ .profile-card.intro{
+     width: 75%;
+     h3{
+     font-size: 18px;
+     color: white;}
+ }
  div.services {
      display: flex;
      justify-content: center;

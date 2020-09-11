@@ -14,17 +14,23 @@
     }
     .movie_info {
         margin-top: 10px;
-         margin: auto;
-    color: rgb(14, 11, 11);
-    background-color: rgb(125, 123, 128);
-    width: 450px;
-    height: auto;
-    border: solid 4px  hsl(175, 61%, 7%);
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 5px 8px;
-    text-align: center;
-    line-height: 1.2;
+        margin: auto;
+        color: rgb(14, 11, 11);
+        background-color: rgb(125, 123, 128);
+        width: 450px;
+        height: auto;
+        border: solid 4px  hsl(175, 61%, 7%);
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 5px 8px;
+        text-align: center;
+        line-height: 1.2;
+    }
+
+    .rating {
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
     }
 }
 

@@ -8,6 +8,8 @@
         </ul>
     </div>
 <% end %>
+<div class="card-container">
+<div class="profile-card review">
 <%= form_for @user_movie do |f| %>
 <% if @user_movie %>
     <%=f.hidden_field :movie_id, value: @user_movie.movie.id %>
@@ -18,10 +20,12 @@
 <div><%=f.label "Rating"%></div>
 <div><%=f.number_field :rating%></div><br>
 <div><%=f.label "Review" %></div>
-<div><%=f.text_area :review, size: "100x20"%></div>
+<div><%=f.text_area :review, size: "30x20"%></div>
 <%= f.label :would_watch %>
 <%= f.check_box :would_watch %>
 <%= f.label :seen_before %>
 <%= f.check_box :seen_before %>
 <%= f.submit "Review it!" %>
 <% end %>
+</div>
+</div>

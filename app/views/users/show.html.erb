@@ -21,7 +21,7 @@
             <h3>Followers (<%=@user.followers.count%>):</h3>  
             <%@user.followers.each do |f|%>
                 <div> 
-                    <%= link_to  f.name, user_path(f) %> 
+                    <%= link_to  f.name, user_path(f) %> <%=  %>
                 </div>
             <%end%>
             <h3>Followed (<%=@user.followeds.count%>):</h3>  
@@ -36,6 +36,7 @@
         <% if @current_user%>
             <% if @current_user == @user %>
                 <%= button_to "Edit Profile", edit_user_path(@current_user), method: :get %>
+                <%= button_to  "Delete Profile", {action: "destroy"},  method: :delete, data: { confirm: "Are you sure you want to delete your profile?" }, params: {user: @current_user} %>
             <% elsif User.friends?(@current_user, @user) %>
                 <%= button_to "Unfollow", delete_friend_path, method: :delete, params: {friend: {follower_id: @current_user.id, followed_id: @user.id}} %>
             <% else%>

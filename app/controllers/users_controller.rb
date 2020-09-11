@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :new_user, only: [:new, :create]
-    before_action :find_user, only: [:show, :update, :edit]
+    before_action :find_user, only: [:show, :update, :edit, :destroy]
     
     def new
     end
@@ -27,6 +27,12 @@ class UsersController < ApplicationController
     
     def edit
 
+    end
+
+    def destroy
+        User.destroy(@current_user.id)
+        reset_session
+        redirect_to new_user_path
     end
 
     def update
