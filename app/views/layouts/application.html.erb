@@ -5,12 +5,13 @@
     <title>AMSee</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
 <body>
+
     <nav>
         <% if session[:user_id]%>
             <div><%= link_to image_tag('amsee.png'), welcome_path %></div>
@@ -20,6 +21,11 @@
             <div class="nav_link"><%= link_to "VPs", view_parties_path %></div>
             <div class="nav_link"> <%= link_to  "Recently Reviewed", user_movies_path %></div>
             <div class="nav_link"><%= link_to 'Logout', logout_path, method: :delete %></div>
+            <% if @current_user.profile_pic.attached? %>
+                <%= image_tag @current_user.profile_pic, class:"nav-profile"%>
+            <%else%>
+                <%= image_tag @current_user.img, class:"nav-profile"%>
+            <%end%>
         <% else%>
             <div><%= link_to image_tag('amsee.png'), welcome_path %></div>
             <div><%= render "api/search" %></div>

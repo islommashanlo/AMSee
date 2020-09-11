@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_10_162231) do
+ActiveRecord::Schema.define(version: 2020_09_11_131530) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2020_09_10_162231) do
   create_table "user_movies", force: :cascade do |t|
     t.boolean "would_watch", default: true
     t.boolean "seen_before", default: false
-    t.integer "rating"
+    t.float "rating"
     t.string "review"
     t.integer "movie_id", null: false
     t.integer "user_id", null: false

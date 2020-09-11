@@ -18,7 +18,7 @@
 <% end%>
 <%=f.hidden_field :user_id, value: @current_user.id %>
 <div><%=f.label "Rating"%></div>
-<div><%=f.number_field :rating%></div><br>
+<div><%=f.number_field :rating, value: 0%></div><br>
 <div><%=f.label "Review" %></div>
 <div><%=f.text_area :review, size: "30x20"%></div>
 <%= f.label :would_watch %>
