@@ -213,6 +213,8 @@ img{
     font-size: 2rem;
 }
 .centered {
+    width:300px;
+    flex-wrap: wrap ;
     padding-top: 30px;
     display: flex;
     text-align: center;
@@ -339,6 +341,10 @@ img{
     opacity: 1;
   }
 }
+body .create.back {
+  margin: 40px 0;
+ 
+}
 @keyframes swing-in-top-fwd {
   0% {
     -webkit-transform: rotateX(-100deg);
@@ -357,8 +363,24 @@ img{
 }
 
 .nav-profile {
-  height: 2rem;
+  
+  height: 2.1rem;
 left: 0; 
   width: auto;
   border-radius: 16px;
 }
+body .back{ padding-top: 10px;
+  margin-right: 45px;
+  float:right;
+    background-color: rgb(203, 25, 25);
+      box-shadow: 0 3px 0 rgb(181, 3, 3);
+      color: whitesmoke;
+      border-radius: 7px;
+      padding: .2em .2em;
+      position: relative;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    h5{
+      text-align: center;
+    }

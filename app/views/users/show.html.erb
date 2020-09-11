@@ -1,4 +1,5 @@
 <div class="my-profile">
+        <%= link_to 'Back', :back, class:"back" %>
     <div class="wrapper">
         <div class="box header">
             Profile Page of "<%=@user.name%>"
@@ -43,13 +44,17 @@
                 <%= button_to "Follow", new_friend_path, params: {friend: {follower_id: @current_user.id, followed_id: @user.id}} %>
             <% end %>
         <% end %>
-        <%= link_to 'Back', :back, class:"back" %>
     </div>
 </div>
     <% if @user.streaming_services.present? %>
     <div class="section-title">
             Streaming Services:
             </div>
+            <div class="card-container">
+        <% if @user == @current_user %>
+            <%= link_to 'Edit Services', streaming_services_path, class:"back", style: "margin: 0 0;" %>
+        <% end %>
+        </div>
     <div class="services">
         <% @user.streaming_services.each do |service|%>
                 <a href= <%= service.streaming_url %> target="_blank"> <%= image_tag service.icon %></a>
@@ -61,6 +66,7 @@
     <% if @user.view_parties.length > 0 %>
         
         <div class="section-title">VIEW PARTIES:</div>
+        
             <div class="card-container">
                 <%@user.view_parties.each do |vp|%>
                     <div class="profile-card">

@@ -1,4 +1,9 @@
-<h1>View Parties that you are part of</h1>
+<% if @current_user %>
+    <h1>View Parties that you are part of</h1>
+<% else %>
+    <h1>View Parties You Could Join</h1>
+    <h5>if you were a member</h4>
+<% end %>
 <% if @view_parties.length == 0 %>
     <div class="errors"> You don't have any parties!?!?!?!</div>
 <% else %>
@@ -31,3 +36,5 @@
     </div>
     <% end%>
 <% end %>
+</div>
+<%= link_to 'Back', :back, class:"back" %>

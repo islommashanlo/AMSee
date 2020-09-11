@@ -1,7 +1,7 @@
 class ViewPartiesController < ApplicationController
     before_action :new_party, only: [:new, :create]
     before_action :find_party, only: [:show, :update, :edit]
-
+    before_action :authorized,  only: [:show]
     def index
         if @current_user
             @view_parties = ViewParty.all.select{|e|e.users.include?(@current_user)}
