@@ -4,6 +4,7 @@ class WelcomeController < ApplicationController
         @reccomendations
     end
 
+
     def api_call(url)
         uri = URI(url)
         response = Net::HTTP.get_response(uri)

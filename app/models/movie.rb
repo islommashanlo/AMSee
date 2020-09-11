@@ -24,7 +24,7 @@ class Movie < ApplicationRecord
 
     def average_rating
         if self.user_movies.count > 0
-            (self.user_movies.reject{|e|e.rating == nil}.sum{|m|m.rating}.to_f / self.user_movies.reject{|e|e.rating == nil}.count).to_f
+            (self.user_movies.reject{|e|e.rating == nil || e.rating == 0.01}.sum{|m|m.rating}.to_f / self.user_movies.reject{|e|e.rating == nil}.count).to_f
         else 
             0.0
         end

@@ -1,0 +1,13 @@
+<div class="section-title">My Movies</div>
+
+<div class="result">
+        
+        <div class="card-container">
+            <% @movies.each do |movie| %>
+                <div class="profile-card">
+                    <h2><%= link_to movie.title, movie_detail_path(movie.tmdb_id) %></h2>
+                    <div class="poster"><%= image_tag movie.img_url ,onerror: "this.style.display='none'"  %></div>
+                    
+        </div>
+            <% end %>
+    </div>

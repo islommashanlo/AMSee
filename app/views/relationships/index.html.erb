@@ -1,0 +1,16 @@
+<div class="section-title">My Friends </div>
+
+<div class="card-container" style="margin: 30px 200px;">
+    <% @users.each do |user| %>
+        <div class="profile-card">
+              <% if user.profile_pic.attached? %>
+                <%= image_tag user.profile_pic, class:"profile-image swing-in-top-fwd"%>
+            <%else%>
+                <%= image_tag user.img, class:"profile-image swing-in-top-fwd"%>
+            <%end%>
+                <p class="name">
+            <%= link_to user.name, user_path(user.id) %>
+            </p>
+        </div>
+        <% end%>
+</div>

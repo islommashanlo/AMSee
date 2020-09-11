@@ -13,12 +13,14 @@
         </h3>
     </div>
 </div>
-<div class="card-container">
-    <%= link_to image_tag('streaming_services.png'), streaming_services_path %>
+<div class="card-container" style="margin: 0 220px;  ">
+    <%= link_to image_tag('streaming_services.png'), streaming_services_path%>
     <%= link_to image_tag('viewparties.png'), view_parties_path %>
     <%= link_to image_tag('toptenn.png'), top_rated_path %>
     <% if @current_user%>
     <%= link_to image_tag('watchlist.png'), friend_watch_list_path %>
+    <%= link_to image_tag('friends.png'), relationships_path %>
+    <%= link_to image_tag('mymovies.png'), movies_path %>
 
     <% end%>
 </div>

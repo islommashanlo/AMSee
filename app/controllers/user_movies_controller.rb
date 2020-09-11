@@ -4,7 +4,7 @@ class UserMoviesController < ApplicationController
     before_action :find_user_movie, only: [:show, :update, :edit, :destroy]
     
     def index
-        @user_movies = UserMovie.all
+        @user_movies = UserMovie.all.select {|um| um.review.present?}
     end
 
     def new

@@ -22,6 +22,10 @@ class RelationshipsController < ApplicationController
         redirect_to users_path
     end
 
+    def index
+        @users = @current_user.followeds
+    end
+
     private
 
     def friend_params
