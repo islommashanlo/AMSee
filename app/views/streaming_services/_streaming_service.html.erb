@@ -1,6 +1,6 @@
 <div class="card-container">
     <div class="service-card">
-        <a href=<%= streaming_service.streaming_url %>><%= image_tag asset_url("#{streaming_service.icon}"), class:"logo" %></a>
+        <a href=<%= streaming_service.streaming_url %> target="_blank"><%= image_tag asset_url("#{streaming_service.icon}"), class:"logo" %></a>
         <div class="service-name"><%= streaming_service.name %></div>
         <div class="service-price">
             <% if @current_user%>

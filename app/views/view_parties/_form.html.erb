@@ -17,8 +17,13 @@
     <%=f.label :date%><br>
     <%= datepicker_input f, :date%><br>
     <%=f.label :streaming_location%><br>
-    <%=f.collection_select :streaming_location, Movie.find(flash[:movie_id]).streaming_services, :id, :name %><br>
-    <%=f.hidden_field :movie_id, value: flash[:movie_id] %>
+    <% if @view_party.movie_id != nil%>
+        <%=f.collection_select :streaming_location, @view_party.movie.streaming_services, :id, :name %><br>
+        <%=f.hidden_field :movie_id, value: @view_party.movie_id %>
+    <%else%>
+        <%=f.hidden_field :movie_id, value: flash[:movie_id] %>
+        <%=f.collection_select :streaming_location, Movie.find(flash[:movie_id]).streaming_services, :id, :name %><br>
+    <%end%>
     <br>
     <%=f.submit%>
     <% end %>

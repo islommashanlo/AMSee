@@ -13,7 +13,7 @@
     <%end%>
 <%end%>
 <%=@view_party.proper_date%><br>
-<%=link_to StreamingService.find(@view_party.streaming_location).name, "#{ServiceMovie.find_by(streaming_service_id: @view_party.streaming_location).stream_location}"%> <br>
+<%=link_to image_tag(StreamingService.find(@view_party.streaming_location).icon), "#{ServiceMovie.find_by(streaming_service_id: @view_party.streaming_location, movie_id: @view_party.movie.id).stream_location}"%><br>
 <% if @view_party.users.include?(@current_user) and @view_party.users[0] != @current_user%>
     <%= button_to  "Leave View Party", leave_view_party_path, method: :delete, params: {user_view_party: {view_party_id: @view_party.id, user_id: @current_user.id}} %>
 <%elsif @view_party.users.include?(@current_user) and @view_party.users.first == @current_user%>

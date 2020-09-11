@@ -12,6 +12,7 @@ class ViewPartiesController < ApplicationController
     end
 
     def update
+        
         @view_party.update(party_params)
         if @view_party.valid?
             redirect_to view_party_path
@@ -26,7 +27,7 @@ class ViewPartiesController < ApplicationController
     end
 
     def edit
-        @view_party = ViewParty.find(params[:id])
+        # @view_party = ViewParty.find(params[:id])
     end
 
     def destroy
